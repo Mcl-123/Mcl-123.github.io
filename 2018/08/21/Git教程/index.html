@@ -91,7 +91,7 @@
 <meta property="og:image" content="http://yoursite.com/pictures/distributed.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/21/Git教程/pictures/version_repository.png">
 <meta property="og:image" content="http://yoursite.com/pictures/merge_rebase.png">
-<meta property="og:updated_time" content="2018-08-21T13:45:33.468Z">
+<meta property="og:updated_time" content="2018-08-22T00:01:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git教程">
 <meta name="twitter:description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家. Git 的诞生很多人都知道，Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢？事实是，在">
@@ -415,10 +415,9 @@
 <li>$ git config –global user.name “Your Name”</li>
 <li>$ git config –global user.email “<a href="mailto:email@example.com" target="_blank" rel="noopener">email@example.com</a>“<br>注: 可以针对不同的 repo 配置不同的用户名及邮箱</li>
 </ul>
-<h2 id="Git-版本库的初始化"><a href="#Git-版本库的初始化" class="headerlink" title="Git 版本库的初始化"></a>Git 版本库的初始化</h2><ul>
-<li>git init<br>Or</li>
-<li>git clone xx@xxxx<br><img src="pictures/version_repository.png" alt="version_repository"></li>
-</ul>
+<h2 id="Git-版本库的初始化"><a href="#Git-版本库的初始化" class="headerlink" title="Git 版本库的初始化"></a>Git 版本库的初始化</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>Or<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone xx@xxxx</span><br></pre></td></tr></table></figure></p>
+<p><img src="./pictures/version_repository.png" alt="version_repository"></p>
 <h2 id="Git-的常见操作"><a href="#Git-的常见操作" class="headerlink" title="Git 的常见操作"></a>Git 的常见操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">要查看哪些文件处于什么状态</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file&gt;</span><br><span class="line">git add .</span><br><span class="line">暂存已修改文件</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;</span><br><span class="line">假如你修改了两个文件并且想要将它们作为两次独立的修改提交，但是却意外地输 入了 git add . 暂存了它们两个，此时取消一个文件&lt;file&gt;的暂存用git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
