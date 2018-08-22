@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家. Git 的诞生很多人都知道，Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢？事实是，在">
+<meta name="description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家.">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git教程">
 <meta property="og:url" content="http://yoursite.com/2018/08/21/Git教程/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家. Git 的诞生很多人都知道，Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢？事实是，在">
+<meta property="og:description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/pictures/centralization.png">
 <meta property="og:image" content="http://yoursite.com/pictures/distributed.png">
 <meta property="og:image" content="http://yoursite.com/2018/08/21/Git教程/pictures/version_repository.png">
 <meta property="og:image" content="http://yoursite.com/pictures/merge_rebase.png">
-<meta property="og:updated_time" content="2018-08-22T00:01:08.000Z">
+<meta property="og:updated_time" content="2018-08-22T13:03:14.699Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git教程">
-<meta name="twitter:description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家. Git 的诞生很多人都知道，Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢？事实是，在">
+<meta name="twitter:description" content="工欲善其器, 必先利其器.今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家.">
 <meta name="twitter:image" content="http://yoursite.com/pictures/centralization.png">
 
 
@@ -401,6 +401,7 @@
 
       
         <p>工欲善其器, 必先利其器.<br>今天给项目组的小伙伴们分享了 git 的使用, 所以就顺便再分享给大家.</p>
+<a id="more"></a>
 <h2 id="Git-的诞生"><a href="#Git-的诞生" class="headerlink" title="Git 的诞生"></a>Git 的诞生</h2><p>很多人都知道，Linus在1991年创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。<br>Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢？<br>事实是，在2002年以前，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码！<br>不过，到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了，社区的弟兄们也对这种方式表达了强烈不满，于是Linus选择了一个商业的版本控制系统BitKeeper，BitKeeper的东家BitMover公司出于人道主义精神，授权Linux社区免费使用这个版本控制系统。<br>安定团结的大好局面在2005年就被打破了，原因是Linux社区牛人聚集，不免沾染了一些梁山好汉的江湖习气。开发Samba的Andrew试图破解BitKeeper的协议（这么干的其实也不只他一个），被BitMover公司发现了（监控工作做得不错！），于是BitMover公司怒了，要收回Linux社区的免费使用权。<br>Linus可以向BitMover公司道个歉，保证以后严格管教弟兄们，嗯，这是不可能的。实际情况是这样的：<br>Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！牛是怎么定义的呢？大家可以体会一下。<br>Git迅速成为最流行的分布式版本控制系统，尤其是2008年，GitHub网站上线了，它为开源项目免费提供Git存储，无数开源项目开始迁移至GitHub，包括jQuery，PHP，Ruby等等。</p>
 <h2 id="Git-是什么"><a href="#Git-是什么" class="headerlink" title="Git 是什么"></a>Git 是什么</h2><p><strong>分布式版本控制系统</strong></p>
 <h3 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h3><p>记录一个或若干个内容变化, 以便将来查阅特定版本修订情况的系统</p>
