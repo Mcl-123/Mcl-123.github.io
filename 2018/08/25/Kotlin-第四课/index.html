@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Kotlin,package,import," />
+  <meta name="keywords" content="Kotlin," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="包">
-<meta name="keywords" content="Kotlin,package,import">
+<meta name="description" content="控制流: If, When, For, While">
+<meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin 第三课 -- 包与导入">
-<meta property="og:url" content="http://yoursite.com/2018/08/25/Kotlin-第三课/index.html">
+<meta property="og:title" content="Kotlin 第四课 -- 控制流语法">
+<meta property="og:url" content="http://yoursite.com/2018/08/25/Kotlin-第四课/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="包">
+<meta property="og:description" content="控制流: If, When, For, While">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-25T14:08:41.211Z">
+<meta property="og:updated_time" content="2018-08-25T14:39:49.232Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin 第三课 -- 包与导入">
-<meta name="twitter:description" content="包">
+<meta name="twitter:title" content="Kotlin 第四课 -- 控制流语法">
+<meta name="twitter:description" content="控制流: If, When, For, While">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/25/Kotlin-第三课/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/25/Kotlin-第四课/"/>
 
 
 
 
 
-  <title>Kotlin 第三课 -- 包与导入 | JackieMa's Blog</title>
+  <title>Kotlin 第四课 -- 控制流语法 | JackieMa's Blog</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/Kotlin-第三课/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/Kotlin-第四课/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jackie Ma">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kotlin 第三课 -- 包与导入</h1>
+          <h1 class="post-title" itemprop="name headline">Kotlin 第四课 -- 控制流语法</h1>
         
 
         <div class="post-meta">
@@ -324,7 +324,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T16:29:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T22:10:42+08:00">
                 2018-08-25
               </time>
             
@@ -365,9 +365,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/25/Kotlin-第三课/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/25/Kotlin-第四课/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/25/Kotlin-第三课/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/25/Kotlin-第四课/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -395,41 +395,52 @@
       
 
       
-        <h1 id="包"><a href="#包" class="headerlink" title="包"></a>包</h1><a id="more"></a>
-<p>源文件通常以包声明开头:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> foo.bar</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">baz</span><span class="params">()</span></span> &#123; ... &#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Goo</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
-<p>源文件所有内容（无论是类还是函数）都包含在声明的包内。 所以上例中 baz() 的全名是 foo.bar.baz、Goo 的全名是 foo.bar.Goo.</p>
-<p>如果没有指明包，该文件的内容属于无名字的默认包</p>
-<h2 id="默认导入"><a href="#默认导入" class="headerlink" title="默认导入"></a>默认导入</h2><p>有多个包会默认导入到每个 Kotlin 文件中：</p>
-<ul>
-<li>kotlin.*</li>
-<li>kotlin.annotation.*</li>
-<li>kotlin.collections.*</li>
-<li>kotlin.comparisons.* （自 1.1 起）</li>
-<li>kotlin.io.*</li>
-<li>kotlin.ranges.*</li>
-<li>kotlin.sequences.*</li>
-<li>kotlin.text.*</li>
+        <h1 id="控制流-If-When-For-While"><a href="#控制流-If-When-For-While" class="headerlink" title="控制流: If, When, For, While"></a>控制流: If, When, For, While</h1><a id="more"></a>
+<h2 id="If"><a href="#If" class="headerlink" title="If"></a>If</h2><p>在 Kotlin 中，if是一个表达式，即它会返回一个值. 因此, 就不需要三元运算符了.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传统用法</span></span><br><span class="line"><span class="keyword">var</span> max = a</span><br><span class="line"><span class="keyword">if</span> (a &lt; b) max = b</span><br><span class="line"></span><br><span class="line"><span class="comment">// With else</span></span><br><span class="line"><span class="keyword">var</span> max: <span class="built_in">Int</span></span><br><span class="line"><span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">    max = a</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    max = b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 作为表达式</span></span><br><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+<p>if的分支可以是代码块，最后的表达式作为该块的值：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">    print(<span class="string">"Choose a"</span>)</span><br><span class="line">    a</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    print(<span class="string">"Choose b"</span>)</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注: 如果你使用 if 作为表达式而不是语句（例如：返回它的值或者把它赋给变量），该表达式需要有 else 分支.</p>
+<h2 id="When"><a href="#When" class="headerlink" title="When"></a>When</h2><ul>
+<li>when 取代了 switch 操作符</li>
 </ul>
-<p>根据目标平台还会导入额外的包：</p>
-<p>JVM:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    <span class="number">1</span> -&gt; print(<span class="string">"x == 1"</span>)</span><br><span class="line">    <span class="number">2</span> -&gt; print(<span class="string">"x == 2"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; &#123; <span class="comment">// 注意这个块</span></span><br><span class="line">        print(<span class="string">"x is neither 1 nor 2"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注: 像 if 一样，每一个分支可以是一个代码块，它的值是块中最后的表达式的值;<br>如果 when 作为一个表达式使用，则必须有 else 分支， 除非编译器能够检测出所有的可能情况都已经覆盖了［例如，对于 枚举（enum）类条目与密封（sealed）类子类型］.</p>
 <ul>
-<li>ava.lang.*</li>
-<li>kotlin.jvm.*</li>
+<li>多个分支条件放一起</li>
 </ul>
-<p>JS:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    <span class="number">0</span>, <span class="number">1</span> -&gt; print(<span class="string">"x == 0 or x == 1"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"otherwise"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>kotlin.js.*</li>
+<li>检测一个值在（in）或者不在（!in）一个区间或者集合中</li>
 </ul>
-<h1 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h1><p>除了默认导入之外，每个文件可以包含它自己的导入指令。</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> foo.Bar <span class="comment">// 现在 Bar 可以不用限定符访问</span></span><br><span class="line"><span class="keyword">import</span> foo.* <span class="comment">// “foo”中的一切都可访问</span></span><br><span class="line"><span class="keyword">import</span> bar.Bar <span class="keyword">as</span> bBar <span class="comment">// bBar 代表“bar.Bar”</span></span><br></pre></td></tr></table></figure>
-<p>关键字 import 并不仅限于导入类；也可用它来导入其他声明：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    parseInt(s) -&gt; print(<span class="string">"s encodes x"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"s does not encode x"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>顶层函数及属性</li>
-<li>在对象声明中声明的函数和属性</li>
-<li>枚举常量</li>
+<li>检测一个值是（is）或者不是（!is）一个特定类型的值</li>
 </ul>
-<p>注: 与 Java 不同, Kotlin 没有单独的 “import static” 语法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    <span class="keyword">in</span> <span class="number">1.</span><span class="number">.10</span> -&gt; print(<span class="string">"x is in the range"</span>)</span><br><span class="line">    <span class="keyword">in</span> validNumbers -&gt; print(<span class="string">"x is valid"</span>)</span><br><span class="line">    !<span class="keyword">in</span> <span class="number">10.</span><span class="number">.20</span> -&gt; print(<span class="string">"x is outside the range"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"none of the above"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>也可以用来取代 if-else if链</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> &#123;</span><br><span class="line">    x.isOdd() -&gt; print(<span class="string">"x is odd"</span>)</span><br><span class="line">    x.isEven() -&gt; print(<span class="string">"x is even"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"x is funny"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="For"><a href="#For" class="headerlink" title="For"></a>For</h2><ul>
+<li>for 循环可以对任何提供迭代器（iterator）的对象进行遍历</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> collection) print(item)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在数字区间上迭代</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.3</span>) &#123;</span><br><span class="line">    println(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">6</span> downTo <span class="number">0</span> step <span class="number">2</span>) &#123;</span><br><span class="line">    println(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过索引遍历一个数组或者一个 list</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> array.indices) &#123;</span><br><span class="line">    println(array[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用库函数 withIndex</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((index, value) <span class="keyword">in</span> array.withIndex()) &#123;</span><br><span class="line">    println(<span class="string">"the element at <span class="variable">$index</span> is <span class="variable">$value</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="While"><a href="#While" class="headerlink" title="While"></a>While</h2><p>正常使用</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    x--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">val</span> y = retrieveData()</span><br><span class="line">&#125; <span class="keyword">while</span> (y != <span class="literal">null</span>) <span class="comment">// y 在此处可见</span></span><br></pre></td></tr></table></figure>
+<h2 id="Break-和-Continue"><a href="#Break-和-Continue" class="headerlink" title="Break 和 Continue"></a>Break 和 Continue</h2><p>正常使用</p>
 
       
     </div>
@@ -449,10 +460,6 @@
           
             <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
           
-            <a href="/tags/package/" rel="tag"><i class="fa fa-tag"></i> package</a>
-          
-            <a href="/tags/import/" rel="tag"><i class="fa fa-tag"></i> import</a>
-          
         </div>
       
 
@@ -464,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/23/Kotlin-第二课/" rel="next" title="Kotlin 第二课 -- 基本数据类型">
-                <i class="fa fa-chevron-left"></i> Kotlin 第二课 -- 基本数据类型
+              <a href="/2018/08/25/Kotlin-第三课/" rel="next" title="Kotlin 第三课 -- 包与导入">
+                <i class="fa fa-chevron-left"></i> Kotlin 第三课 -- 包与导入
               </a>
             
           </div>
@@ -473,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/25/Kotlin-第四课/" rel="prev" title="Kotlin 第四课 -- 控制流语法">
-                Kotlin 第四课 -- 控制流语法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包"><span class="nav-number">1.</span> <span class="nav-text">包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#默认导入"><span class="nav-number">1.1.</span> <span class="nav-text">默认导入</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导入"><span class="nav-number">2.</span> <span class="nav-text">导入</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制流-If-When-For-While"><span class="nav-number">1.</span> <span class="nav-text">控制流: If, When, For, While</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#If"><span class="nav-number">1.1.</span> <span class="nav-text">If</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When"><span class="nav-number">1.2.</span> <span class="nav-text">When</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#For"><span class="nav-number">1.3.</span> <span class="nav-text">For</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#While"><span class="nav-number">1.4.</span> <span class="nav-text">While</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Break-和-Continue"><span class="nav-number">1.5.</span> <span class="nav-text">Break 和 Continue</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -798,9 +801,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/08/25/Kotlin-第三课/';
-          this.page.identifier = '2018/08/25/Kotlin-第三课/';
-          this.page.title = 'Kotlin 第三课 -- 包与导入';
+          this.page.url = 'http://yoursite.com/2018/08/25/Kotlin-第四课/';
+          this.page.identifier = '2018/08/25/Kotlin-第四课/';
+          this.page.title = 'Kotlin 第四课 -- 控制流语法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://jackiema.disqus.com/embed.js';
