@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="返回与跳转: return break continue1val s = person.name ?: return 这些表达式的类型是 Nothing 类型">
+<meta name="description" content="属性var 和 val用关键字 var 声明的属性为可变属性, 用关键字 val 声明的属性为只读属性.">
 <meta name="keywords" content="Kotlin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin 第五课 -- 返回与跳转">
-<meta property="og:url" content="http://yoursite.com/2018/08/26/Kotlin-第五课/index.html">
+<meta property="og:title" content="Kotlin 第七课 -- 属性">
+<meta property="og:url" content="http://yoursite.com/2018/08/27/Kotlin-第七课/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="返回与跳转: return break continue1val s = person.name ?: return 这些表达式的类型是 Nothing 类型">
+<meta property="og:description" content="属性var 和 val用关键字 var 声明的属性为可变属性, 用关键字 val 声明的属性为只读属性.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-26T08:10:03.018Z">
+<meta property="og:updated_time" content="2018-08-27T15:19:51.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin 第五课 -- 返回与跳转">
-<meta name="twitter:description" content="返回与跳转: return break continue1val s = person.name ?: return 这些表达式的类型是 Nothing 类型">
+<meta name="twitter:title" content="Kotlin 第七课 -- 属性">
+<meta name="twitter:description" content="属性var 和 val用关键字 var 声明的属性为可变属性, 用关键字 val 声明的属性为只读属性.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/26/Kotlin-第五课/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/27/Kotlin-第七课/"/>
 
 
 
 
 
-  <title>Kotlin 第五课 -- 返回与跳转 | JackieMa's Blog</title>
+  <title>Kotlin 第七课 -- 属性 | JackieMa's Blog</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/26/Kotlin-第五课/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/27/Kotlin-第七课/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jackie Ma">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kotlin 第五课 -- 返回与跳转</h1>
+          <h1 class="post-title" itemprop="name headline">Kotlin 第七课 -- 属性</h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-26T13:21:19+08:00">
-                2018-08-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-27T21:07:22+08:00">
+                2018-08-27
               </time>
             
 
@@ -365,9 +365,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/26/Kotlin-第五课/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/27/Kotlin-第七课/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/26/Kotlin-第五课/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/27/Kotlin-第七课/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -375,7 +375,7 @@
 
           
           
-             <span id="/2018/08/26/Kotlin-第五课/" class="leancloud_visitors" data-flag-title="Kotlin 第五课 -- 返回与跳转">
+             <span id="/2018/08/27/Kotlin-第七课/" class="leancloud_visitors" data-flag-title="Kotlin 第七课 -- 属性">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,23 +406,43 @@
       
 
       
-        <h1 id="返回与跳转-return-break-continue"><a href="#返回与跳转-return-break-continue" class="headerlink" title="返回与跳转: return break continue"></a>返回与跳转: return break continue</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> s = person.name ?: <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
-<p>这些表达式的类型是 Nothing 类型<br><a id="more"></a></p>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="break-和-continue"><a href="#break-和-continue" class="headerlink" title="break 和 continue"></a>break 和 continue</h3><p>在 Kotlin 中任何表达式都可以用标签（label）来标记。 标签的格式为标识符后跟 @ 符号，例如：abc@、fooBar@</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">loop@</span> <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span>) &#123;</span><br><span class="line">    <span class="comment">// ……</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以用标签限制 break 或者continue:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">loop@</span> <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span>) &#123;</span><br><span class="line">    <span class="keyword">for</span> (j <span class="keyword">in</span> <span class="number">1.</span><span class="number">.100</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (……) <span class="keyword">break</span><span class="symbol">@loop</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="return"><a href="#return" class="headerlink" title="return"></a>return</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).forEach &#123;</span><br><span class="line">        <span class="keyword">if</span> (it == <span class="number">3</span>) <span class="keyword">return</span> <span class="comment">// 非局部直接返回到 foo() 的调用者</span></span><br><span class="line">        print(it)</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">"this point is unreachable"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> 如果我们需要从 lambda 表达式中返回，我们必须给它加标签并用以限制 return:</p>
- <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).forEach <span class="symbol">lit@</span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (it == <span class="number">3</span>) <span class="keyword">return</span><span class="symbol">@lit</span> <span class="comment">// 局部返回到该 lambda 表达式的调用者，即 forEach 循环</span></span><br><span class="line">        print(it)</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">" done with explicit label"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>现在，它只会从 lambda 表达式中返回。通常情况下使用隐式标签更方便。 该标签与接受该 lambda 的函数同名:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).forEach &#123;</span><br><span class="line">        <span class="keyword">if</span> (it == <span class="number">3</span>) <span class="keyword">return</span><span class="symbol">@forEach</span> <span class="comment">// 局部返回到该 lambda 表达式的调用者，即 forEach 循环</span></span><br><span class="line">        print(it)</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">" done with implicit label"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或者，我们用一个匿名函数替代 lambda 表达式。 匿名函数内部的 return 语句将从该匿名函数自身返回:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).forEach(<span class="function"><span class="title">fun</span><span class="params">(value: <span class="type">Int</span>)</span></span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (value == <span class="number">3</span>) <span class="keyword">return</span>  <span class="comment">// 局部返回到匿名函数的调用者，即 forEach 循环</span></span><br><span class="line">        print(value)</span><br><span class="line">    &#125;)</span><br><span class="line">    print(<span class="string">" done with anonymous function"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>或者:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    run <span class="symbol">loop@</span>&#123;</span><br><span class="line">        listOf(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>).forEach &#123;</span><br><span class="line">            <span class="keyword">if</span> (it == <span class="number">3</span>) <span class="keyword">return</span><span class="symbol">@loop</span> <span class="comment">// 从传入 run 的 lambda 表达式非局部返回</span></span><br><span class="line">            print(it)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    print(<span class="string">" done with nested loop"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>当要返一个回值的时候，解析器优先选用标签限制的 return，即:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span><span class="symbol">@a</span> <span class="number">1</span> \\ 意为“从标签 <span class="meta">@a</span> 返回 <span class="number">1</span>”，而不是“返回一个标签标注的表达式 (<span class="meta">@a</span> <span class="number">1</span>)”</span><br></pre></td></tr></table></figure>
+        <h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h2 id="var-和-val"><a href="#var-和-val" class="headerlink" title="var 和 val"></a>var 和 val</h2><p>用关键字 var 声明的属性为可变属性, 用关键字 val 声明的属性为只读属性.</p>
+<a id="more"></a>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: String = ……</span><br><span class="line">    <span class="keyword">var</span> street: String = ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要使用一个属性，只要用名称引用它即可:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">copyAddress</span><span class="params">(address: <span class="type">Address</span>)</span></span>: Address &#123;</span><br><span class="line">    <span class="keyword">val</span> result = Address() <span class="comment">// Kotlin 中没有“new”关键字</span></span><br><span class="line">    result.name = address.name <span class="comment">// 将调用访问器</span></span><br><span class="line">    result.street = address.street</span><br><span class="line">    <span class="comment">// ……</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Getter-和-Setter"><a href="#Getter-和-Setter" class="headerlink" title="Getter 和 Setter"></a>Getter 和 Setter</h2><p>声明一个属性的完整语法是:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &lt;propertyName&gt;[: &lt;PropertyType&gt;] [= &lt;property_initializer&gt;]</span><br><span class="line">    [&lt;getter&gt;]</span><br><span class="line">    [&lt;setter&gt;]</span><br></pre></td></tr></table></figure>
+<p>其初始器（initializer）、getter 和 setter 都是可选的.<br>属性类型如果可以从初始器 （或者从其 getter 返回值，如下文所示）中推断出来，也可以省略:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> allByDefault: <span class="built_in">Int</span>? <span class="comment">// 错误：需要显式初始化器，隐含默认 getter 和 setter</span></span><br><span class="line"><span class="keyword">var</span> initialized = <span class="number">1</span> <span class="comment">// 类型 Int、默认 getter 和 setter</span></span><br></pre></td></tr></table></figure>
+<p>我们可以编写自定义的访问器:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> isEmpty: <span class="built_in">Boolean</span></span><br><span class="line">    <span class="keyword">get</span>() = <span class="keyword">this</span>.size == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringRepresentation: String</span><br><span class="line">    <span class="keyword">get</span>() = <span class="keyword">this</span>.toString()</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        setDataFromString(value) <span class="comment">// 解析字符串并赋值给其他属性</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注: setter 参数的默认名称是 value，也可以选择一个不同的名称</p>
+<p>自 Kotlin 1.1 起，如果可以从 getter 推断出属性类型，则可以省略它：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> isEmpty <span class="keyword">get</span>() = <span class="keyword">this</span>.size == <span class="number">0</span>  <span class="comment">// 具有类型 Boolean</span></span><br></pre></td></tr></table></figure>
+<p>如果需要改变一个访问器的可见性或者对其注解，但是不需要改变默认的实现， 你可以定义访问器而不定义其实现:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> setterVisibility: String = <span class="string">"abc"</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">set</span> <span class="comment">// 此 setter 是私有的并且有默认实现</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> setterWithAnnotation: Any? = <span class="literal">null</span></span><br><span class="line">    <span class="meta">@Inject</span> <span class="keyword">set</span> <span class="comment">// 用 Inject 注解此 setter</span></span><br></pre></td></tr></table></figure>
+<h2 id="只读属性和可变属性的区别"><a href="#只读属性和可变属性的区别" class="headerlink" title="只读属性和可变属性的区别"></a>只读属性和可变属性的区别</h2><ol>
+<li>只读属性的用 val开始代替var</li>
+<li>只读属性不允许 setter</li>
+</ol>
+<h2 id="Field-关键字"><a href="#Field-关键字" class="headerlink" title="Field 关键字"></a>Field 关键字</h2><p>在 Kotlin 中，任何时候当你写出“一个变量后边加等于号”这种形式的时候，比如我们定义 var no: Int 变量，当你写出 no = … 这种形式的时候，这个等于号都会被编译器翻译成调用 setter 方法；而同样，在任何位置引用变量时，只要出现 no 变量的地方都会被编译器翻译成 getter 方法。那么问题就来了，当你在 setter 方法内部写出 no = … 时，相当于在 setter 方法中调用 setter 方法，形成递归，进而形成死循环，例如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> no: <span class="built_in">Int</span> = <span class="number">100</span></span><br><span class="line">    <span class="keyword">get</span>() = field                <span class="comment">// 后端变量</span></span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">if</span> (value &lt; <span class="number">10</span>) &#123;       <span class="comment">// 如果传入的值小于 10 返回该值</span></span><br><span class="line">            field = value</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            field = <span class="number">-1</span>         <span class="comment">// 如果传入的值大于等于 10 返回 -1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这段代码按以上这种写法是正确的，因为使用了 field 关键字，但是如果不用 field 关键字会怎么样呢？例如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> no: <span class="built_in">Int</span> = <span class="number">100</span></span><br><span class="line">    <span class="keyword">get</span>() = no</span><br><span class="line">    <span class="keyword">set</span>(value) &#123;</span><br><span class="line">        <span class="keyword">if</span> (value &lt; <span class="number">10</span>) &#123;       <span class="comment">// 如果传入的值小于 10 返回该值</span></span><br><span class="line">            no = value</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            no = <span class="number">-1</span>         <span class="comment">// 如果传入的值大于等于 10 返回 -1</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意这里我们使用的 Java 的思维写了 getter 和 setter 方法，那么这时，如果将这段代码翻译成 Java 代码会是怎么样呢？如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> no = <span class="number">100</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getNo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getNo();<span class="comment">// Kotlin中的get() = no语句中出来了变量no，直接被编译器理解成“调用getter方法”</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNo</span><span class="params">(<span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (value &lt; <span class="number">10</span>) &#123;</span><br><span class="line">        setNo(value);<span class="comment">// Kotlin中出现“no =”这样的字样，直接被编译器理解成“这里要调用setter方法”</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        setNo(-<span class="number">1</span>);<span class="comment">// 在setter方法中调用setter方法，这是不正确的</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>翻译成 Java 代码之后就很直观了，在 getter 方法和 setter 方法中都形成了递归调用，显然是不正确的，最终程序会出现内存溢出而异常终止。</p>
+<p>注: field 标识符只能用在属性的访问器内.</p>
+<h2 id="延迟初始化属性与变量"><a href="#延迟初始化属性与变量" class="headerlink" title="延迟初始化属性与变量"></a>延迟初始化属性与变量</h2><p>一般地，属性声明为非空类型必须在构造函数中初始化。 然而，这经常不方便。例如：属性可以通过依赖注入来初始化， 或者在单元测试的 setup 方法中初始化。 这种情况下，你不能在构造函数内提供一个非空初始器。 但你仍然想在类体中引用该属性时避免空检查。<br>为处理这种情况，可以用 lateinit 修饰符标记该属性：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">lateinit</span> <span class="keyword">var</span> subject: TestSubject</span><br><span class="line"></span><br><span class="line">    <span class="meta">@SetUp</span> <span class="function"><span class="keyword">fun</span> <span class="title">setup</span><span class="params">()</span></span> &#123;</span><br><span class="line">        subject = TestSubject()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span> <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> &#123;</span><br><span class="line">        subject.method()  <span class="comment">// 直接解引用</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注:</p>
+<ul>
+<li>该修饰符只能用于在类体中的属性（不是在主构造函数中声明的 var 属性，并且仅当该属性没有自定义 getter 或 setter 时），而自 Kotlin 1.2 起，也用于顶层属性与局部变量。该属性或变量必须为非空类型，并且不能是原生类型.</li>
+<li>在初始化前访问一个 lateinit 属性会抛出一个特定异常，该异常明确标识该属性被访问及它没有初始化的事实。</li>
+</ul>
+<h3 id="检测一个-lateinit-var-是否已初始化"><a href="#检测一个-lateinit-var-是否已初始化" class="headerlink" title="检测一个 lateinit var 是否已初始化"></a>检测一个 lateinit var 是否已初始化</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (foo::bar.isInitialized) &#123;</span><br><span class="line">    println(foo.bar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -452,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/25/Kotlin-第四课/" rel="next" title="Kotlin 第四课 -- 控制流语法">
-                <i class="fa fa-chevron-left"></i> Kotlin 第四课 -- 控制流语法
+              <a href="/2018/08/26/Kotlin-第六课/" rel="next" title="Kotlin 第六课 -- 类与继承">
+                <i class="fa fa-chevron-left"></i> Kotlin 第六课 -- 类与继承
               </a>
             
           </div>
@@ -461,10 +481,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/26/Kotlin-第六课/" rel="prev" title="Kotlin 第六课 -- 类与继承">
-                Kotlin 第六课 -- 类与继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -616,7 +632,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#返回与跳转-return-break-continue"><span class="nav-number">1.</span> <span class="nav-text">返回与跳转: return break continue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">1.1.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#break-和-continue"><span class="nav-number">1.1.1.</span> <span class="nav-text">break 和 continue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#return"><span class="nav-number">1.1.2.</span> <span class="nav-text">return</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#var-和-val"><span class="nav-number">1.1.</span> <span class="nav-text">var 和 val</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Getter-和-Setter"><span class="nav-number">1.2.</span> <span class="nav-text">Getter 和 Setter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只读属性和可变属性的区别"><span class="nav-number">1.3.</span> <span class="nav-text">只读属性和可变属性的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Field-关键字"><span class="nav-number">1.4.</span> <span class="nav-text">Field 关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延迟初始化属性与变量"><span class="nav-number">1.5.</span> <span class="nav-text">延迟初始化属性与变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检测一个-lateinit-var-是否已初始化"><span class="nav-number">1.5.1.</span> <span class="nav-text">检测一个 lateinit var 是否已初始化</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -786,9 +802,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/08/26/Kotlin-第五课/';
-          this.page.identifier = '2018/08/26/Kotlin-第五课/';
-          this.page.title = 'Kotlin 第五课 -- 返回与跳转';
+          this.page.url = 'http://yoursite.com/2018/08/27/Kotlin-第七课/';
+          this.page.identifier = '2018/08/27/Kotlin-第七课/';
+          this.page.title = 'Kotlin 第七课 -- 属性';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://jackiema.disqus.com/embed.js';
