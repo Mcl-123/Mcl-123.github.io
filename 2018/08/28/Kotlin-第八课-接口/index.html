@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.使用关键字 interface 来定义接口.">
+<meta name="description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.接口不会保存属性值，实现接口时，必须重写属性.使用关键字 interface 来定义接口.">
 <meta name="keywords" content="Kotlin,interface">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin 第八课 -- 接口">
 <meta property="og:url" content="http://yoursite.com/2018/08/28/Kotlin-第八课-接口/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.使用关键字 interface 来定义接口.">
+<meta property="og:description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.接口不会保存属性值，实现接口时，必须重写属性.使用关键字 interface 来定义接口.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-28T15:58:21.459Z">
+<meta property="og:updated_time" content="2018-08-28T16:04:03.732Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin 第八课 -- 接口">
-<meta name="twitter:description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.使用关键字 interface 来定义接口.">
+<meta name="twitter:description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.接口不会保存属性值，实现接口时，必须重写属性.使用关键字 interface 来定义接口.">
 
 
 
@@ -406,7 +406,7 @@
       
 
       
-        <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.<br>它可以有属性但必须声明为抽象或提供访问器实现.<br>使用关键字 interface 来定义接口.</p>
+        <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.<br>它可以有属性但必须声明为抽象或提供访问器实现.<br>接口不会保存属性值，实现接口时，必须重写属性.<br>使用关键字 interface 来定义接口.</p>
 <a id="more"></a>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 可选的方法体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h2><p>一个类或者对象可以实现一个或多个接口:</p>
