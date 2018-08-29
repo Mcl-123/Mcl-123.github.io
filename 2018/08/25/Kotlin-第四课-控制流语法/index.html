@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Kotlin,interface," />
+  <meta name="keywords" content="Kotlin,Control Flow," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.接口不会保存属性值，实现接口时，必须重写属性.使用关键字 interface 来定义接口.">
-<meta name="keywords" content="Kotlin,interface">
+<meta name="description" content="控制流: If, When, For, While">
+<meta name="keywords" content="Kotlin,Control Flow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin 第八课 -- 接口">
-<meta property="og:url" content="http://yoursite.com/2018/08/28/Kotlin-第八课-接口/index.html">
+<meta property="og:title" content="Kotlin 第四课 -- 控制流语法">
+<meta property="og:url" content="http://yoursite.com/2018/08/25/Kotlin-第四课-控制流语法/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.接口不会保存属性值，实现接口时，必须重写属性.使用关键字 interface 来定义接口.">
+<meta property="og:description" content="控制流: If, When, For, While">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-28T16:04:03.732Z">
+<meta property="og:updated_time" content="2018-08-29T12:33:31.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin 第八课 -- 接口">
-<meta name="twitter:description" content="接口Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.它可以有属性但必须声明为抽象或提供访问器实现.接口不会保存属性值，实现接口时，必须重写属性.使用关键字 interface 来定义接口.">
+<meta name="twitter:title" content="Kotlin 第四课 -- 控制流语法">
+<meta name="twitter:description" content="控制流: If, When, For, While">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/28/Kotlin-第八课-接口/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/25/Kotlin-第四课-控制流语法/"/>
 
 
 
 
 
-  <title>Kotlin 第八课 -- 接口 | JackieMa's Blog</title>
+  <title>Kotlin 第四课 -- 控制流语法 | JackieMa's Blog</title>
   
 
 
@@ -295,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/28/Kotlin-第八课-接口/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/25/Kotlin-第四课-控制流语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jackie Ma">
@@ -312,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kotlin 第八课 -- 接口</h1>
+          <h1 class="post-title" itemprop="name headline">Kotlin 第四课 -- 控制流语法</h1>
         
 
         <div class="post-meta">
@@ -324,8 +324,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-28T21:59:56+08:00">
-                2018-08-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-25T22:10:42+08:00">
+                2018-08-25
               </time>
             
 
@@ -365,9 +365,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/28/Kotlin-第八课-接口/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/25/Kotlin-第四课-控制流语法/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/28/Kotlin-第八课-接口/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/25/Kotlin-第四课-控制流语法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -375,7 +375,7 @@
 
           
           
-             <span id="/2018/08/28/Kotlin-第八课-接口/" class="leancloud_visitors" data-flag-title="Kotlin 第八课 -- 接口">
+             <span id="/2018/08/25/Kotlin-第四课-控制流语法/" class="leancloud_visitors" data-flag-title="Kotlin 第四课 -- 控制流语法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,17 +406,53 @@
       
 
       
-        <h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><p>Kotlin 的接口与 Java 8 类似，既包含抽象方法的声明，也包含实现.<br>它可以有属性但必须声明为抽象或提供访问器实现.<br>接口不会保存属性值，实现接口时，必须重写属性.<br>使用关键字 interface 来定义接口.</p>
-<a id="more"></a>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 可选的方法体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="实现接口"><a href="#实现接口" class="headerlink" title="实现接口"></a>实现接口</h2><p>一个类或者对象可以实现一个或多个接口:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> : <span class="type">MyInterface &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="comment">// 方法体</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="接口中的属性"><a href="#接口中的属性" class="headerlink" title="接口中的属性"></a>接口中的属性</h2><p>可以在接口中定义属性。在接口中声明的属性要么是抽象的，要么提供访问器的实现。在接口中声明的属性不能有幕后字段（backing field），因此接口中声明的访问器不能引用它们:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">MyInterface</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> prop: <span class="built_in">Int</span> <span class="comment">// 抽象的</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> propertyWithImplementation: String</span><br><span class="line">        <span class="keyword">get</span>() = <span class="string">"foo"</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        print(prop)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> : <span class="type">MyInterface &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">val</span> prop: <span class="built_in">Int</span> = <span class="number">29</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="接口继承"><a href="#接口继承" class="headerlink" title="接口继承"></a>接口继承</h2><p>一个接口可以从其他接口派生，从而既提供基类型成员的实现也声明新的函数与属性。很自然地，实现这样接口的类只需定义所缺少的实现：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">nterface Named &#123;</span><br><span class="line">    <span class="keyword">val</span> name: String</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Person</span> : <span class="type">Named &#123;</span></span></span><br><span class="line">    <span class="keyword">val</span> firstName: String</span><br><span class="line">    <span class="keyword">val</span> lastName: String</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">val</span> name: String <span class="keyword">get</span>() = <span class="string">"<span class="variable">$firstName</span> <span class="variable">$lastName</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span>(</span><br><span class="line">    <span class="comment">// 不必实现“name”</span></span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">val</span> firstName: String,</span><br><span class="line">    <span class="keyword">override</span> <span class="keyword">val</span> lastName: String,</span><br><span class="line">    <span class="keyword">val</span> position: Position</span><br><span class="line">) : Person</span><br></pre></td></tr></table></figure>
-<h2 id="解决覆盖冲突"><a href="#解决覆盖冲突" class="headerlink" title="解决覆盖冲突"></a>解决覆盖冲突</h2><p>实现多个接口时，可能会遇到同一方法继承多个实现的问题:</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123; print(<span class="string">"A"</span>) &#125;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123; print(<span class="string">"B"</span>) &#125;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span> &#123; print(<span class="string">"bar"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> : <span class="type">A &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span> &#123; print(<span class="string">"bar"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> : <span class="type">A</span>, <span class="type">B &#123;</span></span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>&lt;A&gt;.foo()</span><br><span class="line">        <span class="keyword">super</span>&lt;B&gt;.foo()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">bar</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>&lt;B&gt;.bar()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="控制流-If-When-For-While"><a href="#控制流-If-When-For-While" class="headerlink" title="控制流: If, When, For, While"></a>控制流: If, When, For, While</h1><a id="more"></a>
+<h2 id="If"><a href="#If" class="headerlink" title="If"></a>If</h2><p>在 Kotlin 中，if是一个表达式，即它会返回一个值. 因此, 就不需要三元运算符了.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 传统用法</span></span><br><span class="line"><span class="keyword">var</span> max = a</span><br><span class="line"><span class="keyword">if</span> (a &lt; b) max = b</span><br><span class="line"></span><br><span class="line"><span class="comment">// With else</span></span><br><span class="line"><span class="keyword">var</span> max: <span class="built_in">Int</span></span><br><span class="line"><span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">    max = a</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    max = b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 作为表达式</span></span><br><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+<p>if的分支可以是代码块，最后的表达式作为该块的值：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> max = <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">    print(<span class="string">"Choose a"</span>)</span><br><span class="line">    a</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    print(<span class="string">"Choose b"</span>)</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注: 如果你使用 if 作为表达式而不是语句（例如：返回它的值或者把它赋给变量），该表达式需要有 else 分支.</p>
+<h2 id="When"><a href="#When" class="headerlink" title="When"></a>When</h2><ul>
+<li>when 取代了 switch 操作符</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    <span class="number">1</span> -&gt; print(<span class="string">"x == 1"</span>)</span><br><span class="line">    <span class="number">2</span> -&gt; print(<span class="string">"x == 2"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; &#123; <span class="comment">// 注意这个块</span></span><br><span class="line">        print(<span class="string">"x is neither 1 nor 2"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注: 像 if 一样，每一个分支可以是一个代码块，它的值是块中最后的表达式的值;<br>如果 when 作为一个表达式使用，则必须有 else 分支， 除非编译器能够检测出所有的可能情况都已经覆盖了［例如，对于 枚举（enum）类条目与密封（sealed）类子类型］.</p>
+<ul>
+<li>多个分支条件放一起</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    <span class="number">0</span>, <span class="number">1</span> -&gt; print(<span class="string">"x == 0 or x == 1"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"otherwise"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检测一个值在（in）或者不在（!in）一个区间或者集合中</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    parseInt(s) -&gt; print(<span class="string">"s encodes x"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"s does not encode x"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>检测一个值是（is）或者不是（!is）一个特定类型的值</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> (x) &#123;</span><br><span class="line">    <span class="keyword">in</span> <span class="number">1.</span><span class="number">.10</span> -&gt; print(<span class="string">"x is in the range"</span>)</span><br><span class="line">    <span class="keyword">in</span> validNumbers -&gt; print(<span class="string">"x is valid"</span>)</span><br><span class="line">    !<span class="keyword">in</span> <span class="number">10.</span><span class="number">.20</span> -&gt; print(<span class="string">"x is outside the range"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"none of the above"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>也可以用来取代 if-else if链</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">when</span> &#123;</span><br><span class="line">    x.isOdd() -&gt; print(<span class="string">"x is odd"</span>)</span><br><span class="line">    x.isEven() -&gt; print(<span class="string">"x is even"</span>)</span><br><span class="line">    <span class="keyword">else</span> -&gt; print(<span class="string">"x is funny"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="For"><a href="#For" class="headerlink" title="For"></a>For</h2><ul>
+<li>for 循环可以对任何提供迭代器（iterator）的对象进行遍历</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (item <span class="keyword">in</span> collection) print(item)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在数字区间上迭代</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1.</span><span class="number">.3</span>) &#123;</span><br><span class="line">    println(i)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">6</span> downTo <span class="number">0</span> step <span class="number">2</span>) &#123;</span><br><span class="line">    println(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过索引遍历一个数组或者一个 list</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (i <span class="keyword">in</span> array.indices) &#123;</span><br><span class="line">    println(array[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>用库函数 withIndex</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ((index, value) <span class="keyword">in</span> array.withIndex()) &#123;</span><br><span class="line">    println(<span class="string">"the element at <span class="variable">$index</span> is <span class="variable">$value</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="While"><a href="#While" class="headerlink" title="While"></a>While</h2><p>正常使用</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> (x &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    x--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="keyword">val</span> y = retrieveData()</span><br><span class="line">&#125; <span class="keyword">while</span> (y != <span class="literal">null</span>) <span class="comment">// y 在此处可见</span></span><br></pre></td></tr></table></figure>
+<h2 id="循环中的-Break-和-Continue"><a href="#循环中的-Break-和-Continue" class="headerlink" title="循环中的 Break 和 Continue"></a>循环中的 Break 和 Continue</h2><p>正常使用</p>
+
       
     </div>
     
@@ -435,7 +471,7 @@
           
             <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
           
-            <a href="/tags/interface/" rel="tag"><i class="fa fa-tag"></i> interface</a>
+            <a href="/tags/Control-Flow/" rel="tag"><i class="fa fa-tag"></i> Control Flow</a>
           
         </div>
       
@@ -448,8 +484,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/Kotlin-第七课-属性/" rel="next" title="Kotlin 第七课 -- 属性">
-                <i class="fa fa-chevron-left"></i> Kotlin 第七课 -- 属性
+              <a href="/2018/08/25/Kotlin-第三课-包与导入/" rel="next" title="Kotlin 第三课 -- 包与导入">
+                <i class="fa fa-chevron-left"></i> Kotlin 第三课 -- 包与导入
               </a>
             
           </div>
@@ -457,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/26/Kotlin-第五课-返回与跳转/" rel="prev" title="Kotlin 第五课 -- 返回与跳转">
+                Kotlin 第五课 -- 返回与跳转 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -608,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#接口"><span class="nav-number">1.</span> <span class="nav-text">接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现接口"><span class="nav-number">1.1.</span> <span class="nav-text">实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口中的属性"><span class="nav-number">1.2.</span> <span class="nav-text">接口中的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接口继承"><span class="nav-number">1.3.</span> <span class="nav-text">接口继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决覆盖冲突"><span class="nav-number">1.4.</span> <span class="nav-text">解决覆盖冲突</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#控制流-If-When-For-While"><span class="nav-number">1.</span> <span class="nav-text">控制流: If, When, For, While</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#If"><span class="nav-number">1.1.</span> <span class="nav-text">If</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When"><span class="nav-number">1.2.</span> <span class="nav-text">When</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#For"><span class="nav-number">1.3.</span> <span class="nav-text">For</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#While"><span class="nav-number">1.4.</span> <span class="nav-text">While</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环中的-Break-和-Continue"><span class="nav-number">1.5.</span> <span class="nav-text">循环中的 Break 和 Continue</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -778,9 +818,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/08/28/Kotlin-第八课-接口/';
-          this.page.identifier = '2018/08/28/Kotlin-第八课-接口/';
-          this.page.title = 'Kotlin 第八课 -- 接口';
+          this.page.url = 'http://yoursite.com/2018/08/25/Kotlin-第四课-控制流语法/';
+          this.page.identifier = '2018/08/25/Kotlin-第四课-控制流语法/';
+          this.page.title = 'Kotlin 第四课 -- 控制流语法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://jackiema.disqus.com/embed.js';
