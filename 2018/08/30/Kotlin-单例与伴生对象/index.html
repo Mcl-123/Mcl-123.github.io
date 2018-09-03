@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Kotlin,伴生对象," />
+  <meta name="keywords" content="Kotlin,伴生对象,单例," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="伴生对象">
-<meta name="keywords" content="Kotlin,伴生对象">
+<meta name="description" content="单例Kotlin 中没有 static 关键字, 如果需要实现单例, 可以使用关键字 object 声明一个对象, 对象的构造器不能提供构造参数.在第一次使用的时候会被初始化, 可用于提供常量或共享不可变对象.">
+<meta name="keywords" content="Kotlin,伴生对象,单例">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kotlin -- 伴生对象">
-<meta property="og:url" content="http://yoursite.com/2018/08/30/Kotlin-伴生对象/index.html">
+<meta property="og:title" content="Kotlin -- 单例与伴生对象">
+<meta property="og:url" content="http://yoursite.com/2018/08/30/Kotlin-单例与伴生对象/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="伴生对象">
+<meta property="og:description" content="单例Kotlin 中没有 static 关键字, 如果需要实现单例, 可以使用关键字 object 声明一个对象, 对象的构造器不能提供构造参数.在第一次使用的时候会被初始化, 可用于提供常量或共享不可变对象.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-08-29T16:19:23.957Z">
+<meta property="og:updated_time" content="2018-09-03T14:52:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kotlin -- 伴生对象">
-<meta name="twitter:description" content="伴生对象">
+<meta name="twitter:title" content="Kotlin -- 单例与伴生对象">
+<meta name="twitter:description" content="单例Kotlin 中没有 static 关键字, 如果需要实现单例, 可以使用关键字 object 声明一个对象, 对象的构造器不能提供构造参数.在第一次使用的时候会被初始化, 可用于提供常量或共享不可变对象.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/30/Kotlin-伴生对象/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/30/Kotlin-单例与伴生对象/"/>
 
 
 
 
 
-  <title>Kotlin -- 伴生对象 | JackieMa's Blog</title>
+  <title>Kotlin -- 单例与伴生对象 | JackieMa's Blog</title>
   
 
 
@@ -303,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/Kotlin-伴生对象/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/30/Kotlin-单例与伴生对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jackie Ma">
@@ -320,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kotlin -- 伴生对象</h1>
+          <h1 class="post-title" itemprop="name headline">Kotlin -- 单例与伴生对象</h1>
         
 
         <div class="post-meta">
@@ -373,9 +373,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/30/Kotlin-伴生对象/#comments" itemprop="discussionUrl">
+                <a href="/2018/08/30/Kotlin-单例与伴生对象/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/30/Kotlin-伴生对象/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/08/30/Kotlin-单例与伴生对象/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -383,7 +383,7 @@
 
           
           
-             <span id="/2018/08/30/Kotlin-伴生对象/" class="leancloud_visitors" data-flag-title="Kotlin -- 伴生对象">
+             <span id="/2018/08/30/Kotlin-单例与伴生对象/" class="leancloud_visitors" data-flag-title="Kotlin -- 单例与伴生对象">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -414,7 +414,28 @@
       
 
       
-        <h1 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h1>
+        <h1 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h1><p>Kotlin 中没有 static 关键字, 如果需要实现单例, 可以使用关键字 object 声明一个对象, 对象的构造器不能提供构造参数.<br>在第一次使用的时候会被初始化, 可用于提供常量或共享不可变对象.</p>
+<a id="more"></a>
+<h2 id="对象声明"><a href="#对象声明" class="headerlink" title="对象声明"></a>对象声明</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> DataProviderManager &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">registerDataProvider</span><span class="params">(provider: <span class="type">DataProvider</span>)</span></span> &#123;</span><br><span class="line">        <span class="comment">// ……</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">val</span> allDataProviders: Collection&lt;DataProvider&gt;</span><br><span class="line">        <span class="keyword">get</span>() = <span class="comment">// ……</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如需引用该对象，我们直接使用其名称即可：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataProviderManager.registerDataProvider(……)</span><br></pre></td></tr></table></figure>
+<p>这些对象可以有超类型：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">object</span> DefaultListener : MouseAdapter() &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">mouseClicked</span><span class="params">(e: <span class="type">MouseEvent</span>)</span></span> &#123; …… &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">mouseEntered</span><span class="params">(e: <span class="type">MouseEvent</span>)</span></span> &#123; …… &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注: 对象声明不能在局部作用域（即直接嵌套在函数内部），但是它们可以嵌套到其他对象声明或非内部类中.</p>
+<h1 id="伴生对象"><a href="#伴生对象" class="headerlink" title="伴生对象"></a>伴生对象</h1><p>类内部的对象声明可以用 companion 关键字标记：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> Factory &#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">create</span><span class="params">()</span></span>: MyClass = MyClass()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>该伴生对象的成员可通过只使用类名作为限定符来调用：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> instance = MyClass.create()</span><br></pre></td></tr></table></figure>
+<p>可以省略伴生对象的名称，在这种情况下将使用名称 Companion：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> x = MyClass.Companion</span><br></pre></td></tr></table></figure>
+<p>注: 即使伴生对象的成员看起来像其他语言的静态成员，在运行时他们仍然是真实对象的实例成员，而且，例如还可以实现接口：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Factory</span>&lt;<span class="type">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">create</span><span class="params">()</span></span>: T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> : Factory&lt;MyClass&gt; &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">create</span><span class="params">()</span></span>: MyClass = MyClass()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注: 在 JVM 平台，如果使用 @JvmStatic 注解，你可以将伴生对象的成员生成为真正的静态方法和字段.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StaticTest</span></span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span>&#123;</span><br><span class="line">        const  <span class="keyword">val</span> s= <span class="string">""</span></span><br><span class="line">        <span class="meta">@JvmStatic</span> <span class="function"><span class="keyword">fun</span> <span class="title">test</span><span class="params">()</span></span> = print(s)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数据块中的属性或者方法可以使用类.成员的方式调用（调用方式和static成员一致），但是他们在运行时依然是实体的实例成员:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton2</span> <span class="keyword">private</span> <span class="keyword">constructor</span></span>()&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">get</span><span class="params">()</span></span>: Singleton2&#123;</span><br><span class="line">            <span class="keyword">return</span> Inner2.instance</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">object</span>  Inner2&#123;</span><br><span class="line">        <span class="keyword">val</span> instance: Singleton2    = Singleton2()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如上: 我们使用伴生对象可以更好的和单例结合，这样在调用单例的时候可以在我们想要获得单例实例的时候再出初始化单例，保证了线程安全.</p>
+
       
     </div>
     
@@ -434,6 +455,8 @@
             <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
           
             <a href="/tags/伴生对象/" rel="tag"><i class="fa fa-tag"></i> 伴生对象</a>
+          
+            <a href="/tags/单例/" rel="tag"><i class="fa fa-tag"></i> 单例</a>
           
         </div>
       
@@ -563,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -606,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#伴生对象"><span class="nav-number">1.</span> <span class="nav-text">伴生对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例"><span class="nav-number">1.</span> <span class="nav-text">单例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象声明"><span class="nav-number">1.1.</span> <span class="nav-text">对象声明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#伴生对象"><span class="nav-number">2.</span> <span class="nav-text">伴生对象</span></a></li></ol></div>
             
 
           </div>
@@ -776,9 +799,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2018/08/30/Kotlin-伴生对象/';
-          this.page.identifier = '2018/08/30/Kotlin-伴生对象/';
-          this.page.title = 'Kotlin -- 伴生对象';
+          this.page.url = 'http://yoursite.com/2018/08/30/Kotlin-单例与伴生对象/';
+          this.page.identifier = '2018/08/30/Kotlin-单例与伴生对象/';
+          this.page.title = 'Kotlin -- 单例与伴生对象';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://jackiema.disqus.com/embed.js';
