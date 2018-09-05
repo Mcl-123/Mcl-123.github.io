@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,pojo," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="小小, 小码农梦很美">
+<meta name="description" content="POJOPlain Ordinary Java Object简单地 Java 对象, 实际上就是普通的 JavaBeans, 是为了避免和 EJB 混淆所创造的简称.">
+<meta name="keywords" content="java,pojo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="POJO">
 <meta property="og:url" content="http://yoursite.com/2018/09/05/POJO/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="小小, 小码农梦很美">
+<meta property="og:description" content="POJOPlain Ordinary Java Object简单地 Java 对象, 实际上就是普通的 JavaBeans, 是为了避免和 EJB 混淆所创造的简称.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-05T13:10:18.127Z">
+<meta property="og:updated_time" content="2018-09-05T14:41:07.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POJO">
-<meta name="twitter:description" content="小小, 小码农梦很美">
+<meta name="twitter:description" content="POJOPlain Ordinary Java Object简单地 Java 对象, 实际上就是普通的 JavaBeans, 是为了避免和 EJB 混淆所创造的简称.">
 
 
 
@@ -342,6 +343,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -391,7 +414,25 @@
       
 
       
-        
+        <h1 id="POJO"><a href="#POJO" class="headerlink" title="POJO"></a>POJO</h1><p>Plain Ordinary Java Object<br>简单地 Java 对象, 实际上就是普通的 JavaBeans, 是为了避免和 EJB 混淆所创造的简称.</p>
+<a id="more"></a>
+<p>JavaBean 是一种JAVA语言写成的可重用组件。它的方法命名，构造及行为必须符合特定的约定：</p>
+<ul>
+<li>这个类必须有一个公共的缺省构造函数</li>
+<li>这个类的属性使用getter和setter来访问，其他方法遵从标准命名规范</li>
+<li>这个类应是可序列化的</li>
+</ul>
+<p>因为这些要求主要是靠约定而不是靠实现接口，所以许多开发者把JavaBean看作遵从特定命名约定的POJO。</p>
+<p>简而言之，当一个Pojo可序列化，有一个无参的构造函数，使用getter和setter方法来访问属性时，他就是一个JavaBean。</p>
+<p>简单理解:</p>
+<p>POJO 是 DO/DTO/BO/VO 的统称, 但禁止被命名成 xxxPOJO 而已.</p>
+<ul>
+<li>数据对象: xxxDO</li>
+<li>数据传输对象: xxxDTO</li>
+<li>展示对象: xxxVO</li>
+<li>业务对象: xxxBO</li>
+</ul>
+
       
     </div>
     
@@ -405,6 +446,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/pojo/" rel="tag"><i class="fa fa-tag"></i> pojo</a>
+          
+        </div>
       
 
       
@@ -485,8 +534,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -512,7 +570,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -523,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -556,6 +614,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#POJO"><span class="nav-number">1.</span> <span class="nav-text">POJO</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
