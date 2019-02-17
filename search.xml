@@ -6,7 +6,7 @@
       <title>Gradle 离线更新</title>
       <link href="/2019/02/14/Gradle-%E7%A6%BB%E7%BA%BF%E6%9B%B4%E6%96%B0/"/>
       <url>/2019/02/14/Gradle-%E7%A6%BB%E7%BA%BF%E6%9B%B4%E6%96%B0/</url>
-      <content type="html"><![CDATA[<p>遇到下载的项目，Android studio 一直无法下载成功对应的 gradle 版本，所以选择手动下载 gradle 对应的 zip 文件。</p><ol><li>先到 <a href="https://www.jianshu.com/p/ab539e9a7955" target="_blank" rel="noopener">Gradle 官网</a>下载对应的版本 complete 包（all）到本地。</li></ol><p><img src="/images/gradle_download.png" alt="gradle_download"></p><ol start="2"><li>拷贝 gradle-x.x-all.zip 到该目录下:</li></ol><p><img src="/images/gradle_save_location.png" alt="gradle_save_location"></p><p>注意: 1.如果在dists目录下有该gradle版本的文件夹，则拷贝压缩包到该版本文件夹的随机码路径文件夹下。<br>    : 2.否则自己按照之前的对比新建一个文件夹（例如：gradle-4.6-all），然后重新建一个随机码作为名字的文件夹，将gradle-4.6-all.zip拷贝到该目录下。</p>]]></content>
+      <content type="html"><![CDATA[<p>遇到下载的项目，Android studio 一直无法下载成功对应的 gradle 版本，所以选择手动下载 gradle 对应的 zip 文件。</p><ol><li>先到 <a href="http://services.gradle.org/distributions/" target="_blank" rel="noopener">Gradle 官网</a>下载对应的版本 complete 包（all）到本地。</li></ol><p><img src="/images/gradle_download.png" alt="gradle_download"></p><ol start="2"><li>拷贝 gradle-x.x-all.zip 到该目录下:</li></ol><p><img src="/images/gradle_save_location.png" alt="gradle_save_location"></p><p>注意: 1.如果在dists目录下有该gradle版本的文件夹，则拷贝压缩包到该版本文件夹的随机码路径文件夹下。<br>    : 2.否则自己按照之前的对比新建一个文件夹（例如：gradle-4.6-all），然后重新建一个随机码作为名字的文件夹，将gradle-4.6-all.zip拷贝到该目录下。</p>]]></content>
       
       <categories>
           
