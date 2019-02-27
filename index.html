@@ -302,6 +302,272 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/26/Fragment-详解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jackie Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JackieMa's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/26/Fragment-详解/" itemprop="url">Fragment 详解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-26T20:35:42+08:00">
+                2019-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/26/Fragment-详解/" class="leancloud_visitors" data-flag-title="Fragment 详解">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Fragment-详解"><a href="#Fragment-详解" class="headerlink" title="Fragment 详解"></a>Fragment 详解</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Fragment(碎片)功能，它非常类似于Activity，可以像Activity一样包含布局，Fragment通常是嵌套在Activity中使用的。<br>Activity一方面需要在布局中为Fragment安排位置，另一方面需要管理好Fragment的生命周期。Activity中有个FragmentManager，其内部维护fragment队列，以及fragment事务的回退栈。</p>
+<p><img src="/images/fragment_activity.jpg" alt="fragment_activity嵌套"></p>
+<h2 id="Fragment的生命周期"><a href="#Fragment的生命周期" class="headerlink" title="Fragment的生命周期"></a>Fragment的生命周期</h2><p>Fragment必须是依存与Activity而存在的，因此Activity的生命周期会直接影响到Fragment的生命周期。</p>
+<p><img src="/images/fragment_lifecycle.jpg" alt="fragment生命周期"></p>
+<h2 id="Fragment的静态使用"><a href="#Fragment的静态使用" class="headerlink" title="Fragment的静态使用"></a>Fragment的静态使用</h2><p>把Fragment当成普通的控件，直接写在Activity的布局文件中。</p>
+<ol>
+<li>继承Fragment，重写onCreateView决定Fragemnt的布局</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TitleFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span></span><br><span class="line"><span class="function"><span class="params">        Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        View view = inflater.inflate(R.layout.fragment_title, container, <span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在Activity 布局文件中中声明此Fragment，就当和普通的View一样</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">fragment</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_fragment_title"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:name</span>=<span class="string">"com.test.TitleFragment"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"45dp"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Fragment的动态使用"><a href="#Fragment的动态使用" class="headerlink" title="Fragment的动态使用"></a>Fragment的动态使用</h2><ol>
+<li>继承Fragment，重写onCreateView决定Fragemnt的布局</li>
+</ol>
+<p>同静态使用步骤1.</p>
+<ol start="2">
+<li>在Actvity的布局文件，中间使用一个FrameLayout</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">FrameLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/id_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"fill_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"fill_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_above</span>=<span class="string">"@id/id_ly_bottombar"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_below</span>=<span class="string">"@id/id_fragment_title"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>在 Activity 的类文件中，动态的添加、更新、以及删除Fragment</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setDefaultFragment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">    FragmentTransaction transaction = fm.beginTransaction();</span><br><span class="line">    titleFragment = <span class="keyword">new</span> TitleFragment();</span><br><span class="line">    transaction.replace(R.id.id_content, titleFragment);</span><br><span class="line">    transaction.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Fragment-常用-API"><a href="#Fragment-常用-API" class="headerlink" title="Fragment 常用 API"></a>Fragment 常用 API</h2><h3 id="Fragment-常用的三个类"><a href="#Fragment-常用的三个类" class="headerlink" title="Fragment 常用的三个类"></a>Fragment 常用的三个类</h3><p>Fragment 主要用于定义Fragment<br>FragmentManager 主要用于在Activity中操作Fragment<br>FragmentTransaction 保证一些列Fragment操作的原子性</p>
+<h3 id="获取FragmentManager的方式"><a href="#获取FragmentManager的方式" class="headerlink" title="获取FragmentManager的方式"></a>获取FragmentManager的方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getSupportFragmentManager()</span><br></pre></td></tr></table></figure>
+<h3 id="主要的操作都是FragmentTransaction的方法"><a href="#主要的操作都是FragmentTransaction的方法" class="headerlink" title="主要的操作都是FragmentTransaction的方法"></a>主要的操作都是FragmentTransaction的方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FragmentTransaction transaction = fm.benginTransatcion();<span class="comment">//开启一个事务</span></span><br><span class="line">transaction.add()</span><br><span class="line">transaction.remove()</span><br><span class="line">transaction.replace()</span><br><span class="line">transaction.hide()</span><br><span class="line">transaction.show()</span><br><span class="line">detach()</span><br><span class="line">attach()</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>我在FragmentA中的EditText填了一些数据，当切换到FragmentB时，如果希望会到A还能看到数据，则适合你的就是hide和show；也就是说，希望保留用户操作的面板，你可以使用hide和show，当然了不要使劲在那new实例，进行下非null判断。</p>
+</li>
+<li><p>再比如：我不希望保留用户操作，你可以使用remove()，然后add()；或者使用replace()这个和remove,add是相同的效果。</p>
+</li>
+<li><p>remove和detach有一点细微的区别，在不考虑回退栈的情况下，remove会销毁整个Fragment实例，而detach则只是销毁其视图结构，实例并不会被销毁。那么二者怎么取舍使用呢？如果你的当前Activity一直存在，那么在不希望保留用户操作的时候，你可以优先使用detach。</p>
+</li>
+</ol>
+<h2 id="管理Fragment回退栈"><a href="#管理Fragment回退栈" class="headerlink" title="管理Fragment回退栈"></a>管理Fragment回退栈</h2><p>可以通过Activity维护一个回退栈来保存每次Fragment事务发生的变化。如果你将Fragment任务添加到回退栈，当用户点击后退按钮时，将看到上一次的保存的Fragment。一旦Fragment完全从后退栈中弹出，用户再次点击后退键，则退出当前Activity。</p>
+<p>添加一个Fragment事务到回退栈：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FragmentTransaction.addToBackStack(String)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Activity 添加默认的Fragment</li>
+</ol>
+<p>这里不调用 addToBackStack，是考虑到点击back时，不想显示白班</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">FragmentTransaction tx = fm.beginTransaction();</span><br><span class="line">tx.add(R.id.id_content, <span class="keyword">new</span> FragmentOne(),<span class="string">"ONE"</span>);</span><br><span class="line">tx.commit();</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>FragmentOne 中添加点击跳转到 FragmentTwo</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FragmentOne</span> <span class="keyword">extends</span> <span class="title">Fragment</span> <span class="keyword">implements</span> <span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Button mBtn;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span></span><br><span class="line"><span class="function"><span class="params">			Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">		View view = inflater.inflate(R.layout.fragment_one, container, <span class="keyword">false</span>);</span><br><span class="line">		mBtn = (Button) view.findViewById(R.id.id_fragment_one_btn);</span><br><span class="line">		mBtn.setOnClickListener(<span class="keyword">this</span>);</span><br><span class="line">		<span class="keyword">return</span> view;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">		FragmentTwo fTwo = <span class="keyword">new</span> FragmentTwo();</span><br><span class="line">		FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">		FragmentTransaction tx = fm.beginTransaction();</span><br><span class="line">		tx.replace(R.id.id_content, fTwo, <span class="string">"TWO"</span>);</span><br><span class="line">		tx.addToBackStack(<span class="keyword">null</span>); </span><br><span class="line">		tx.commit();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>replace是remove和add的合体，并且如果不添加事务到回退栈，前一个Fragment实例会被销毁。这里很明显，我们调用tx.addToBackStack(null);将当前的事务添加到了回退栈，所以FragmentOne实例不会被销毁，但是视图层次依然会被销毁，即会调用onDestoryView和onCreateView</p>
+<h2 id="Fragment与Activity通信"><a href="#Fragment与Activity通信" class="headerlink" title="Fragment与Activity通信"></a>Fragment与Activity通信</h2><ol>
+<li><p>如果你Activity中包含自己管理的Fragment的引用，可以通过引用直接访问所有的Fragment的public方法</p>
+</li>
+<li><p>如果Activity中未保存任何Fragment的引用，那么没关系，每个Fragment都有一个唯一的TAG或者ID,可以通过getSupportFragmentManager.findFragmentByTag()或者findFragmentById()获得任何Fragment实例，然后进行操作。</p>
+</li>
+<li><p>在Fragment中可以通过getActivity得到当前绑定的Activity的实例，然后进行操作。</p>
+</li>
+</ol>
+<h2 id="Fragment与Activity通信的最佳实践"><a href="#Fragment与Activity通信的最佳实践" class="headerlink" title="Fragment与Activity通信的最佳实践"></a>Fragment与Activity通信的最佳实践</h2><p>要考虑Fragment的重复使用，所以必须降低Fragment与Activity的耦合，而且Fragment更不应该直接操作别的Fragment，毕竟Fragment操作应该由它的管理者Activity来决定。</p>
+<ol>
+<li><p>FragmentOne不和任何Activity耦合，任何Activity都可以使用；并且我们声明了一个接口，来回调其点击事件，想要管理其点击事件的Activity实现此接口就即可。可以看到我们在onClick中首先判断了当前绑定的Activity是否实现了该接口，如果实现了则调用。</p>
+</li>
+<li><p>FragmentOne 中定义接口，来回调点击事件</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">private</span> FTwoBtnClickListener fTwoBtnClickListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FTwoBtnClickListener</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">onFTwoBtnClick</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFTwoBtnClickListener</span><span class="params">(FTwoBtnClickListener fTwoBtnClickListener)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.fTwoBtnClickListener = fTwoBtnClickListener;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">mBtn.setOnClickListener(v -&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(fTwoBtnClickListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">        fTwoBtnClickListener.onFTwoBtnClick();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Activity 中 设置接口</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fragmentOne.setFTwoBtnClickListener(<span class="keyword">new</span> FTwoBtnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFOneBtnClick</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mFTwo == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mFTwo = <span class="keyword">new</span> FragmentTwo();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">        FragmentTransaction tx = fm.beginTransaction();</span><br><span class="line">        tx.replace(R.id.id_content, mFTwo, <span class="string">"TWO"</span>);</span><br><span class="line">        tx.addToBackStack(<span class="keyword">null</span>);</span><br><span class="line">        tx.commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="处理运行时配置发生变化"><a href="#处理运行时配置发生变化" class="headerlink" title="处理运行时配置发生变化"></a>处理运行时配置发生变化</h2><p>运行时配置发生变化，最常见的就是屏幕发生旋转（或者app放后台过长时间），如果你不知道如何处理屏幕变化可以参考：</p>
+<p><img src="https://blog.csdn.net/lmj623565791/article/details/37936275" alt="Android 屏幕旋转 处理 AsyncTask 和 ProgressDialog 的最佳方案"></p>
+<ol>
+<li>原本的Activity:</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    mFOne = <span class="keyword">new</span> FragmentOne();</span><br><span class="line">    FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">    FragmentTransaction tx = fm.beginTransaction();</span><br><span class="line">    tx.add(R.id.id_content, mFOne, <span class="string">"ONE"</span>);</span><br><span class="line">    tx.commit();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次屏幕旋转时，都会重新创建 FragmentOne, 并叠加显示，显然有问题。</p>
+<ol start="2">
+<li>修改后的Activity</li>
+</ol>
+<p>2.1 可以这样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    requestWindowFeature(Window.FEATURE_NO_TITLE);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    Log.e(TAG, savedInstanceState+<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">if</span>(savedInstanceState == <span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        mFOne = <span class="keyword">new</span> FragmentOne();</span><br><span class="line">        FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">        FragmentTransaction tx = fm.beginTransaction();</span><br><span class="line">        tx.add(R.id.id_content, mFOne, <span class="string">"ONE"</span>);</span><br><span class="line">        tx.commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实通过检查onCreate的参数Bundle savedInstanceState就可以判断，当前是否发生Activity的重新创建, 默认的savedInstanceState会存储一些数据，包括Fragment的实例。<br>所以，只有在savedInstanceState==null时，才进行创建Fragment实例。</p>
+<p>2.2 或者可以这样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">    mContentFragment = (ContentFragment) fm.findFragmentById(R.id.id_fragment_container);</span><br><span class="line">    <span class="keyword">if</span>(mContentFragment == <span class="keyword">null</span> ) &#123;</span><br><span class="line">        mContentFragment = <span class="keyword">new</span> ContentFragment();</span><br><span class="line">        fm.beginTransaction().add(R.id.id_fragment_container,mContentFragment).commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当Activity因为配置发生改变（屏幕旋转）或者内存不足被系统杀死，造成重新创建时，我们的fragment会被保存下来，但是会创建新的FragmentManager，新的FragmentManager会首先会去获取保存下来的fragment队列，重建fragment队列，从而恢复之前的状态。</p>
+<ol start="3">
+<li>重新绘制时，Fragment也发生重建</li>
+</ol>
+<p>和Activity类似，Fragment也有onSaveInstanceState的方法，在此方法中进行保存数据，然后在onCreate或者onCreateView或者onActivityCreated进行恢复都可以。</p>
+<h2 id="没有布局的Fragment的作用"><a href="#没有布局的Fragment的作用" class="headerlink" title="没有布局的Fragment的作用"></a>没有布局的Fragment的作用</h2><p>没有布局文件Fragment实际上是为了保存，当Activity重启时，保存大量数据准备的。</p>
+<h2 id="使用Fragment创建对话框"><a href="#使用Fragment创建对话框" class="headerlink" title="使用Fragment创建对话框"></a>使用Fragment创建对话框</h2><p><a href="https://github.com/Mcl-123/DialogFragmentDemo" target="_blank" rel="noopener">DialogFragmentDemo</a></p>
+<h2 id="Fragment-Arguments"><a href="#Fragment-Arguments" class="headerlink" title="Fragment Arguments"></a>Fragment Arguments</h2><p>我们某个按钮触发Activity跳转，需要通过Intent传递参数到目标Activity的Fragment中，那么此Fragment如何获取当前的Intent的值？</p>
+<p>Fragment 中： </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    mArgument = getActivity().getIntent().getStringExtra(ARGUMENT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>存在一个大问题：我们用Fragment的一个很大的原因，就是为了复用。你这么写，相当于这个Fragment已经完全和当前这个宿主Activity绑定了，复用直接废了，所以改用下面的方法：</p>
+<p>Fragment 中：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    <span class="comment">// mArgument = getActivity().getIntent().getStringExtra(ARGUMENT);</span></span><br><span class="line">    Bundle bundle = getArguments();</span><br><span class="line">    <span class="keyword">if</span> (bundle != <span class="keyword">null</span>)</span><br><span class="line">        mArgument = bundle.getString(ARGUMENT);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 传入需要的参数，设置给arguments</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> argument</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ContentFragment <span class="title">newInstance</span><span class="params">(String argument)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">    bundle.putString(ARGUMENT, argument);</span><br><span class="line">    ContentFragment contentFragment = <span class="keyword">new</span> ContentFragment();</span><br><span class="line">    contentFragment.setArguments(bundle);</span><br><span class="line">    <span class="keyword">return</span> contentFragment;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：setArguments方法必须在fragment创建以后，添加给Activity前完成。千万不要，首先调用了add，然后设置arguments</p>
+<h2 id="Fragment的startActivityForResult"><a href="#Fragment的startActivityForResult" class="headerlink" title="Fragment的startActivityForResult"></a>Fragment的startActivityForResult</h2><p>在Fragment中存在startActivityForResult（）以及onActivityResult（）方法，但是呢，没有setResult（）方法，用于设置返回的intent，这样我们就需要通过调用getActivity().setResult(ListTitleFragment.REQUEST_DETAIL, intent);</p>
+<h2 id="SingleFragmentActivity"><a href="#SingleFragmentActivity" class="headerlink" title="SingleFragmentActivity"></a>SingleFragmentActivity</h2><p>抽象BaseFragmentActivigty类： SingleFragmentActivity.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleFragmentActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> Fragment <span class="title">createFragment</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">		setContentView(R.layout.activity_single_fragment);</span><br><span class="line">	</span><br><span class="line">		FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">		Fragment fragment =fm.findFragmentById(R.id.id_fragment_container);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span>(fragment == <span class="keyword">null</span> )</span><br><span class="line">		&#123;</span><br><span class="line">			fragment = createFragment() ;</span><br><span class="line">			</span><br><span class="line">			fm.beginTransaction().add(R.id.id_fragment_container,fragment).commit();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>activity_single_fragment.xml:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">	<span class="attr">android:id</span>=<span class="string">"@+id/id_fragment_container"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>ContentActivity.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentActivity</span> <span class="keyword">extends</span> <span class="title">SingleFragmentActivity</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> ContentFragment mContentFragment;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> Fragment <span class="title">createFragment</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		String title = getIntent().getStringExtra(ContentFragment.ARGUMENT);</span><br><span class="line"> </span><br><span class="line">		mContentFragment = ContentFragment.newInstance(title);</span><br><span class="line">		<span class="keyword">return</span> mContentFragment;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ContentFragment.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContentFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">private</span> String mArgument;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String ARGUMENT = <span class="string">"argument"</span>;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String RESPONSE = <span class="string">"response"</span>;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">		Bundle bundle = getArguments();</span><br><span class="line">		<span class="keyword">if</span> (bundle != <span class="keyword">null</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			mArgument = bundle.getString(ARGUMENT);</span><br><span class="line">			Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">			intent.putExtra(RESPONSE, <span class="string">"good"</span>);</span><br><span class="line">			getActivity().setResult(ListTitleFragment.REQUEST_DETAIL, intent);</span><br><span class="line">		&#125;</span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ContentFragment <span class="title">newInstance</span><span class="params">(String argument)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">		bundle.putString(ARGUMENT, argument);</span><br><span class="line">		ContentFragment contentFragment = <span class="keyword">new</span> ContentFragment();</span><br><span class="line">		contentFragment.setArguments(bundle);</span><br><span class="line">		<span class="keyword">return</span> contentFragment;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container,</span></span></span><br><span class="line"><span class="function"><span class="params">			Bundle savedInstanceState)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Random random = <span class="keyword">new</span> Random();</span><br><span class="line">		TextView tv = <span class="keyword">new</span> TextView(getActivity());</span><br><span class="line">		tv.setText(mArgument);</span><br><span class="line">		tv.setGravity(Gravity.CENTER);</span><br><span class="line">		tv.setBackgroundColor(Color.argb(random.nextInt(<span class="number">100</span>),</span><br><span class="line">				random.nextInt(<span class="number">255</span>), random.nextInt(<span class="number">255</span>), random.nextInt(<span class="number">255</span>)));</span><br><span class="line">		<span class="keyword">return</span> tv;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="FragmentPagerAdapter与FragmentStatePagerAdapter"><a href="#FragmentPagerAdapter与FragmentStatePagerAdapter" class="headerlink" title="FragmentPagerAdapter与FragmentStatePagerAdapter"></a>FragmentPagerAdapter与FragmentStatePagerAdapter</h2><p>FragmentPagerAdapter：对于不再需要的fragment，选择调用detach方法，仅销毁视图，并不会销毁fragment实例。</p>
+<p>FragmentStatePagerAdapter：会销毁不再需要的fragment，当当前事务提交以后，会彻底的将fragmeng从当前Activity的FragmentManager中移除，state标明，销毁时，会将其onSaveInstanceState(Bundle outState)中的bundle信息保存下来，当用户切换回来，可以通过该bundle恢复生成新的fragment，也就是说，你可以在onSaveInstanceState(Bundle outState)方法中保存一些数据，在onCreate中进行恢复创建。</p>
+<h2 id="Fragment间的数据传递"><a href="#Fragment间的数据传递" class="headerlink" title="Fragment间的数据传递"></a>Fragment间的数据传递</h2><p>情况：两个Fragment在同一个Activity中：例如，点击当前Fragment中按钮，弹出一个对话框（DialogFragment），在对话框中的操作需要返回给触发的Fragment中</p>
+<p>ContentFragment.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开 DialogFragment</span></span><br><span class="line">tv.setOnClickListener(<span class="keyword">new</span> OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        EvaluateDialog dialog = <span class="keyword">new</span> EvaluateDialog();</span><br><span class="line">        <span class="comment">//注意setTargetFragment</span></span><br><span class="line">        dialog.setTargetFragment(ContentFragment.<span class="keyword">this</span>, REQUEST_EVALUATE);</span><br><span class="line">        dialog.show(getSupportFragmentManager(), EVALUATE_DIALOG);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//接收返回回来的数据</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, data);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (requestCode == REQUEST_EVALUATE)</span><br><span class="line">    &#123;</span><br><span class="line">        String evaluate = data</span><br><span class="line">                .getStringExtra(EvaluateDialog.RESPONSE_EVALUATE);</span><br><span class="line">        Toast.makeText(getActivity(), evaluate, Toast.LENGTH_SHORT).show();</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">        intent.putExtra(RESPONSE, evaluate);</span><br><span class="line">        getActivity().setResult(Activity.REQUEST_OK, intent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>EvaluateDialog.java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置返回数据</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">setResult</span><span class="params">(<span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 判断是否设置了targetFragment</span></span><br><span class="line">    <span class="keyword">if</span> (getTargetFragment() == <span class="keyword">null</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">    intent.putExtra(RESPONSE_EVALUATE, mEvaluteVals[which]);</span><br><span class="line">    getTargetFragment().onActivityResult(ContentFragment.REQUEST_EVALUATE,</span><br><span class="line">            Activity.RESULT_OK, intent);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/aosp-NavigationBar-分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -564,7 +830,7 @@
         
           
             <p>上篇文章提到了 使用自定义uri用于外部启动 app，而我们也可以使用广播来启动外部app，这篇文章简单的介绍下android广播的使用。</p>
-<h1 id="BroadcastReceiver-静态注册与动态注册"><a href="#BroadcastReceiver-静态注册与动态注册" class="headerlink" title="BroadcastReceiver 静态注册与动态注册"></a>BroadcastReceiver 静态注册与动态注册</h1><h2 id="接收广播"><a href="#接收广播" class="headerlink" title="接收广播"></a>接收广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  UI 线程，不建议过多操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="BroadcastReceiver-静态注册与动态注册"><a href="#BroadcastReceiver-静态注册与动态注册" class="headerlink" title="BroadcastReceiver 静态注册与动态注册"></a>BroadcastReceiver 静态注册与动态注册</h1><h2 id="接收广播"><a href="#接收广播" class="headerlink" title="接收广播"></a>接收广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  UI 线程，不建议过多操作</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 注：启动Activity在这些类中是可以的，但是需要创建一个新的task。一般情况不推荐, 见Context 干货：(https://www.jianshu.com/p/881acfafd18d)</span></span><br><span class="line">        <span class="comment">// activityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">".MyReceiver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"music"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    IntentFilter filter=<span class="keyword">new</span> IntentFilter(<span class="string">"music"</span>);</span><br><span class="line">    mBroadcast =<span class="keyword">new</span> MyReceiver();</span><br><span class="line">    registerReceiver(mBroadcast,filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    unregisterReceiver(mBroadcast);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="发送广播"><a href="#发送广播" class="headerlink" title="发送广播"></a>发送广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"music"</span>);</span><br><span class="line"><span class="comment">// 8.0后，静态注册广播接收者时，需 setComponent()</span></span><br><span class="line">intent.setComponent(<span class="keyword">new</span> ComponentName(<span class="string">"com.example.pvwav.broadcastreceiver"</span>, <span class="string">"com.example.pvwav.broadcastreceiver.MyReceiver"</span>));</span><br><span class="line">sendBroadcast(intent);</span><br></pre></td></tr></table></figure>
@@ -1715,163 +1981,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/27/aosp-SystemUI-分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jackie Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JackieMa's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/27/aosp-SystemUI-分析/" itemprop="url">Android SystemUI 源码分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-27T18:32:19+08:00">
-                2019-01-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android源码/" itemprop="url" rel="index">
-                    <span itemprop="name">Android源码</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/01/27/aosp-SystemUI-分析/" class="leancloud_visitors" data-flag-title="Android SystemUI 源码分析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>因为项目需要，所以对 Android 源码中的 SystemUI 做了点基本分析。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/27/aosp-SystemUI-分析/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1922,7 +2031,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1944,7 +2053,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">50</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
