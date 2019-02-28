@@ -89,8 +89,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/fragment_activity.jpg">
 <meta property="og:image" content="http://yoursite.com/images/fragment_lifecycle.jpg">
-<meta property="og:image" content="https://blog.csdn.net/lmj623565791/article/details/37936275">
-<meta property="og:updated_time" content="2019-02-26T14:15:24.884Z">
+<meta property="og:updated_time" content="2019-02-28T13:30:52.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fragment 详解">
 <meta name="twitter:description" content="Fragment 详解前言Fragment(碎片)功能，它非常类似于Activity，可以像Activity一样包含布局，Fragment通常是嵌套在Activity中使用的。Activity一方面需要在布局中为Fragment安排位置，另一方面需要管理好Fragment的生命周期。Activity中有个FragmentManager，其内部维护fragment队列，以及fragment事务的回退">
@@ -477,7 +476,7 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">fragmentOne.setFTwoBtnClickListener(<span class="keyword">new</span> FTwoBtnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFOneBtnClick</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mFTwo == <span class="keyword">null</span>) &#123;</span><br><span class="line">            mFTwo = <span class="keyword">new</span> FragmentTwo();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        FragmentManager fm = getSupportFragmentManager();</span><br><span class="line">        FragmentTransaction tx = fm.beginTransaction();</span><br><span class="line">        tx.replace(R.id.id_content, mFTwo, <span class="string">"TWO"</span>);</span><br><span class="line">        tx.addToBackStack(<span class="keyword">null</span>);</span><br><span class="line">        tx.commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="处理运行时配置发生变化"><a href="#处理运行时配置发生变化" class="headerlink" title="处理运行时配置发生变化"></a>处理运行时配置发生变化</h2><p>运行时配置发生变化，最常见的就是屏幕发生旋转（或者app放后台过长时间），如果你不知道如何处理屏幕变化可以参考：</p>
-<p><img src="https://blog.csdn.net/lmj623565791/article/details/37936275" alt="Android 屏幕旋转 处理 AsyncTask 和 ProgressDialog 的最佳方案"></p>
+<p><a href="https://blog.csdn.net/lmj623565791/article/details/37936275" target="_blank" rel="noopener">Android 屏幕旋转 处理 AsyncTask 和 ProgressDialog 的最佳方案</a></p>
 <ol>
 <li>原本的Activity:</li>
 </ol>
