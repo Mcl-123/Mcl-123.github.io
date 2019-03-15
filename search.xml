@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>反射机制原理及使用</title>
+      <link href="/2019/03/15/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8/"/>
+      <url>/2019/03/15/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Reflection </tag>
+            
+            <tag> 反射 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>CarRadioService 分析</title>
       <link href="/2019/03/04/aosp-CarRadioService-%E5%88%86%E6%9E%90/"/>
       <url>/2019/03/04/aosp-CarRadioService-%E5%88%86%E6%9E%90/</url>
