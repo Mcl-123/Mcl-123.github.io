@@ -405,9 +405,15 @@
 
       
         
-          
-            
-          
+          <p>最近在研究蓝牙源码时发现，有部分类是被 @hide 掉的，例如 通过蓝牙获取通讯录及通话记录，是通过蓝牙 Pbap 协议，具体实现是在 BluetoothPbapClient 中实现，而该类是 hide 的，注释为当前未完成，后期变动可能会比较大，所以hide掉不会放在 sdk 里使用。<br>这种情况下，一般是通过修改源码重新编译来实现该需求，不过我为了快速完成需求，考虑使用反射来调用 BluetoothPbapClient 中的接口。<br>在此记录下反射的使用及原理。</p>
+<p>反射，是能够在程序运行时修改程序的行为。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/15/反射机制原理及使用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
