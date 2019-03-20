@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Android,NavigationBar,源码," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,16 @@
 
 
 
-<meta name="description" content="NavigationBar 分析说明Android手机可分为有导航栏以及没导航栏两种，一般有物理按键的机器不会带有导航栏，而没有物理按键的机器则基本会带。这里主要是分析导航栏导航栏的加载以及按键实现。">
-<meta name="keywords" content="Android,NavigationBar,源码">
-<meta property="og:type" content="article">
-<meta property="og:title" content="NavigationBar 分析">
-<meta property="og:url" content="http://yoursite.com/2019/02/24/aosp-NavigationBar-分析/index.html">
+<meta name="description" content="小小, 小码农梦很美">
+<meta property="og:type" content="website">
+<meta property="og:title" content="JackieMa&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/tags/蓝牙/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="NavigationBar 分析说明Android手机可分为有导航栏以及没导航栏两种，一般有物理按键的机器不会带有导航栏，而没有物理按键的机器则基本会带。这里主要是分析导航栏导航栏的加载以及按键实现。">
+<meta property="og:description" content="小小, 小码农梦很美">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-26T12:34:09.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NavigationBar 分析">
-<meta name="twitter:description" content="NavigationBar 分析说明Android手机可分为有导航栏以及没导航栏两种，一般有物理按键的机器不会带有导航栏，而没有物理按键的机器则基本会带。这里主要是分析导航栏导航栏的加载以及按键实现。">
+<meta name="twitter:title" content="JackieMa&#39;s Blog">
+<meta name="twitter:description" content="小小, 小码农梦很美">
 
 
 
@@ -120,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/24/aosp-NavigationBar-分析/"/>
+  <link rel="canonical" href="http://yoursite.com/tags/蓝牙/"/>
 
 
 
 
 
-  <title>NavigationBar 分析 | JackieMa's Blog</title>
+  <title>Tag: 蓝牙 | JackieMa's Blog</title>
   
 
 
@@ -145,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left ">
     <div class="headband"></div>
 
     <a href="https://github.com/Mcl-123" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -289,230 +287,82 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block tag">
 
-  
+    <div id="posts" class="posts-collapse">
+      <div class="collection-title">
+        <h1>蓝牙<small>Tag</small>
+        </h1>
+      </div>
 
-  
-  
-  
+      
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/aosp-NavigationBar-分析/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jackie Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JackieMa's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2019/03/20/蓝牙电话apk的实现及源码分析/" itemprop="url">
+              
+                <span itemprop="name">蓝牙电话apk的实现及源码分析</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">NavigationBar 分析</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-24T23:15:10+08:00">
-                2019-02-24
-              </time>
-            
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-03-20T20:50:51+08:00"
+              content="2019-03-20" >
+          03-20
+        </time>
+      </div>
 
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android源码/" itemprop="url" rel="index">
-                    <span itemprop="name">Android源码</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/24/aosp-NavigationBar-分析/" class="leancloud_visitors" data-flag-title="NavigationBar 分析">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h1 id="NavigationBar-分析"><a href="#NavigationBar-分析" class="headerlink" title="NavigationBar 分析"></a>NavigationBar 分析</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>Android手机可分为有导航栏以及没导航栏两种，一般有物理按键的机器不会带有导航栏，而没有物理按键的机器则基本会带。这里主要是分析导航栏导航栏的加载以及按键实现。</p>
-<a id="more"></a>
-<h2 id="导航栏的加载以及按键实现"><a href="#导航栏的加载以及按键实现" class="headerlink" title="导航栏的加载以及按键实现"></a>导航栏的加载以及按键实现</h2><p>导航栏是属于系统界面的一部分，也就是SystemUI的一部分。</p>
-<p>StatusBar.java：</p>
-<p>makeStatusBarView():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> showNav = mWindowManagerService.hasNavigationBar();</span><br><span class="line"><span class="keyword">if</span> (showNav) &#123;</span><br><span class="line">    createNavigationBar();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>createNavigationBar():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mNavigationBarView = NavigationBarFragment.create(mContext, (tag, fragment) -&gt; &#123;</span><br><span class="line">            mNavigationBar = (NavigationBarFragment) fragment;</span><br><span class="line">            <span class="keyword">if</span> (mLightBarController != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mNavigationBar.setLightBarController(mLightBarController);</span><br><span class="line">            &#125;</span><br><span class="line">            mNavigationBar.setCurrentSysuiVisibility(mSystemUiVisibility);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<p>NavigationBarFragment.java:</p>
-<p>onCreate():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inflater.inflate(R.layout.navigation_bar, container, <span class="keyword">false</span>)</span><br></pre></td></tr></table></figure>
-<p>navigation_bar.xml:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.android.systemui.statusbar.phone.NavigationBarView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:systemui</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"@drawable/system_bar_background"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">com.android.systemui.statusbar.phone.NavigationBarInflaterView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/navigation_inflater"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">com.android.systemui.statusbar.phone.NavigationBarView</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>NavigationBarView.java: // mRecentIcon</p>
-<p>onFinishInflate():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mNavigationInflaterView = (NavigationBarInflaterView) findViewById(</span><br><span class="line">                R.id.navigation_inflater);</span><br></pre></td></tr></table></figure>
-<p>NavigationBarInflaterView.java:</p>
-<p>onFinishInflate():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inflateLayout(getDefaultLayout());</span><br></pre></td></tr></table></figure>
-<p>inflateButtons():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; buttons.length; i++) &#123;</span><br><span class="line">    inflateButton(buttons[i], parent, landscape);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>inflateButton():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View v = createView(buttonSpec, parent, inflater, landscape);</span><br></pre></td></tr></table></figure>
-<p>createView():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (HOME.equals(button)) &#123;</span><br><span class="line">    v = inflater.inflate(R.layout.home, parent, <span class="keyword">false</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (BACK.equals(button)) &#123;</span><br><span class="line">    v = inflater.inflate(R.layout.back, parent, <span class="keyword">false</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (RECENT.equals(button)) &#123;</span><br><span class="line">    v = inflater.inflate(R.layout.recent_apps, parent, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>home.xml:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">com.android.systemui.statusbar.policy.KeyButtonView</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:systemui</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/home"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"@dimen/navigation_key_width"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_weight</span>=<span class="string">"0"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">systemui:keyCode</span>=<span class="string">"3"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:scaleType</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:contentDescription</span>=<span class="string">"@string/accessibility_home"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:paddingStart</span>=<span class="string">"@dimen/navigation_key_padding"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:paddingEnd</span>=<span class="string">"@dimen/navigation_key_padding"</span></span></span><br><span class="line"><span class="tag">    /&gt;</span></span><br></pre></td></tr></table></figure>
-<p>KeyButtonView.java:</p>
-<p>KeyButtonView():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// id为home以及id为back的KeyButtonView就分别通过systemui:keyCode属性对其进行了设置，设置的值分别是3和4</span></span><br><span class="line">mCode = a.getInteger(R.styleable.KeyButtonView_keyCode, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
-<p>onTouchEvent():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当mCode为0的时候，KeyButtonView并不会调用sendEvent方法</span></span><br><span class="line"><span class="keyword">switch</span> (action) &#123;</span><br><span class="line">    <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</span><br><span class="line">        mDownTime = SystemClock.uptimeMillis();</span><br><span class="line">        mLongClicked = <span class="keyword">false</span>;</span><br><span class="line">        setPressed(<span class="keyword">true</span>);</span><br><span class="line">        <span class="keyword">if</span> (mCode != <span class="number">0</span>) &#123;</span><br><span class="line">            sendEvent(KeyEvent.ACTION_DOWN, <span class="number">0</span>, mDownTime);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// Provide the same haptic feedback that the system offers for virtual keys.</span></span><br><span class="line">            performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> MotionEvent.ACTION_CANCEL:</span><br><span class="line">        setPressed(<span class="keyword">false</span>);</span><br><span class="line">        <span class="keyword">if</span> (mCode != <span class="number">0</span>) &#123;</span><br><span class="line">            sendEvent(KeyEvent.ACTION_UP, KeyEvent.FLAG_CANCELED);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> MotionEvent.ACTION_UP:</span><br><span class="line">        <span class="keyword">if</span> (mCode != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (doIt) &#123;</span><br><span class="line">                sendEvent(KeyEvent.ACTION_UP, <span class="number">0</span>);</span><br><span class="line">                sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                sendEvent(KeyEvent.ACTION_UP, KeyEvent.FLAG_CANCELED);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// no key code, just a regular ImageView</span></span><br><span class="line">            <span class="keyword">if</span> (doIt &amp;&amp; mOnClickListener != <span class="keyword">null</span>) &#123;</span><br><span class="line">                mOnClickListener.onClick(<span class="keyword">this</span>);</span><br><span class="line">                sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_CLICKED);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>sendEvent():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mMetricsLogger.write(<span class="keyword">new</span> LogMaker(MetricsEvent.ACTION_NAV_BUTTON_EVENT)</span><br><span class="line">        .setType(MetricsEvent.TYPE_ACTION)</span><br><span class="line">        .setSubtype(mCode)</span><br><span class="line">        .addTaggedData(MetricsEvent.FIELD_NAV_ACTION, action)</span><br><span class="line">        .addTaggedData(MetricsEvent.FIELD_FLAGS, flags));</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> repeatCount = (flags &amp; KeyEvent.FLAG_LONG_PRESS) != <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line"><span class="keyword">final</span> KeyEvent ev = <span class="keyword">new</span> KeyEvent(mDownTime, when, action, mCode, repeatCount,</span><br><span class="line">        <span class="number">0</span>, KeyCharacterMap.VIRTUAL_KEYBOARD, <span class="number">0</span>,</span><br><span class="line">        flags | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY,</span><br><span class="line">        InputDevice.SOURCE_KEYBOARD);</span><br><span class="line"><span class="comment">// 构建出一个对应的keyCode的KeyEvent ev，然后调用InputManager的injectInputEvent模拟发送来实现与物理按键相同的功能</span></span><br><span class="line">InputManager.getInstance().injectInputEvent(ev,</span><br><span class="line">        InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);</span><br></pre></td></tr></table></figure>
-<p>NavigationBarFragment.java:</p>
-<p>onViewCreated():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prepareNavigationBarView();</span><br></pre></td></tr></table></figure>
-<p>prepareNavigationBarView():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ButtonDispatcher recentsButton = mNavigationBarView.getRecentsButton();</span><br><span class="line">recentsButton.setOnClickListener(<span class="keyword">this</span>::onRecentsClick);</span><br></pre></td></tr></table></figure>
-<p>onRecentsClick():</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">onRecentsClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">    mStatusBar.awakenDreams();</span><br><span class="line">    mCommandQueue.toggleRecentApps();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="App实现隐藏导航栏-沉浸式"><a href="#App实现隐藏导航栏-沉浸式" class="headerlink" title="App实现隐藏导航栏(沉浸式)"></a>App实现隐藏导航栏(沉浸式)</h2><p>MainActivity.java:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onWindowFocusChanged</span><span class="params">(<span class="keyword">boolean</span> hasFocus)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onWindowFocusChanged(hasFocus);</span><br><span class="line">    <span class="keyword">if</span> (hasFocus) &#123;</span><br><span class="line">        View decorView = getWindow().getDecorView();</span><br><span class="line">        decorView.setSystemUiVisibility(</span><br><span class="line">                View.SYSTEM_UI_FLAG_LAYOUT_STABLE</span><br><span class="line">                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</span><br><span class="line">                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION</span><br><span class="line">                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag"><i class="fa fa-tag"></i> Android</a>
-          
-            <a href="/tags/NavigationBar/" rel="tag"><i class="fa fa-tag"></i> NavigationBar</a>
-          
-            <a href="/tags/源码/" rel="tag"><i class="fa fa-tag"></i> 源码</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/21/BroadcastReceiver-静态注册与动态注册/" rel="next" title="BroadcastReceiver 静态注册与动态注册">
-                <i class="fa fa-chevron-left"></i> BroadcastReceiver 静态注册与动态注册
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/26/Fragment-详解/" rel="prev" title="Fragment 详解">
-                Fragment 详解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
+      
+        
 
-    <div class="post-spread">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/03/16/蓝牙基本功能实现/" itemprop="url">
+              
+                <span itemprop="name">蓝牙基本功能实现（开启，扫描，配对，连接等）</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2019-03-16T23:42:18+08:00"
+              content="2019-03-16" >
+          03-16
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
       
     </div>
+
   </div>
+  
+  
+  
+
+  
 
 
           </div>
@@ -520,10 +370,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -544,17 +390,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -624,22 +461,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NavigationBar-分析"><span class="nav-number">1.</span> <span class="nav-text">NavigationBar 分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导航栏的加载以及按键实现"><span class="nav-number">1.2.</span> <span class="nav-text">导航栏的加载以及按键实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#App实现隐藏导航栏-沉浸式"><span class="nav-number">1.3.</span> <span class="nav-text">App实现隐藏导航栏(沉浸式)</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -780,10 +601,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
