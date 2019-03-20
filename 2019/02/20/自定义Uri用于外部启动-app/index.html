@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。 自定义Uri用于外部启动 app新建用于外部启动的Activity应用 A：SchemeURLactivity: SecondActivity 12345678910&amp;lt;activity    android:">
+<meta name="description" content="项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。">
 <meta name="keywords" content="Android,uri">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义Uri用于外部启动 app">
 <meta property="og:url" content="http://yoursite.com/2019/02/20/自定义Uri用于外部启动-app/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。 自定义Uri用于外部启动 app新建用于外部启动的Activity应用 A：SchemeURLactivity: SecondActivity 12345678910&amp;lt;activity    android:">
+<meta property="og:description" content="项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-20T14:16:04.373Z">
+<meta property="og:updated_time" content="2019-03-20T15:42:51.034Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义Uri用于外部启动 app">
-<meta name="twitter:description" content="项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。 自定义Uri用于外部启动 app新建用于外部启动的Activity应用 A：SchemeURLactivity: SecondActivity 12345678910&amp;lt;activity    android:">
+<meta name="twitter:description" content="项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。">
 
 
 
@@ -404,6 +404,7 @@
 
       
         <p>项目有个需求，通过语音打开相应的app，例如我说：“去新街口”，就打开高德地图。讯飞语音demo中就有这样的例子，而它就是通过uir实现的。所以在这儿对该实现做了个总结，以便随时之需。</p>
+<a id="more"></a>
 <h1 id="自定义Uri用于外部启动-app"><a href="#自定义Uri用于外部启动-app" class="headerlink" title="自定义Uri用于外部启动 app"></a>自定义Uri用于外部启动 app</h1><h2 id="新建用于外部启动的Activity"><a href="#新建用于外部启动的Activity" class="headerlink" title="新建用于外部启动的Activity"></a>新建用于外部启动的Activity</h2><p>应用 A：SchemeURL<br>activity: SecondActivity</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;activity</span><br><span class="line">    android:name=<span class="string">".SecondActivity"</span>&gt;</span><br><span class="line">    &lt;intent-filter&gt;</span><br><span class="line">        &lt;action android:name=<span class="string">"android.jackie.schemeurl.activity"</span> /&gt;</span><br><span class="line">        &lt;category android:name=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span><br><span class="line">        &lt;data</span><br><span class="line">            android:scheme=<span class="string">"jackie"</span></span><br><span class="line">            android:host=<span class="string">"test.uri.activity"</span> /&gt;</span><br><span class="line">    &lt;/intent-filter&gt;</span><br><span class="line">&lt;/activity&gt;</span><br></pre></td></tr></table></figure>
 <h2 id="新建启动外部应用的应用"><a href="#新建启动外部应用的应用" class="headerlink" title="新建启动外部应用的应用"></a>新建启动外部应用的应用</h2><p>应用 B：StartSchemeURL</p>
@@ -553,7 +554,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
