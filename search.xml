@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>如何使用hide掉的类及接口</title>
+      <link href="/2019/03/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hide%E6%8E%89%E7%9A%84%E7%B1%BB%E5%8F%8A%E6%8E%A5%E5%8F%A3/"/>
+      <url>/2019/03/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8hide%E6%8E%89%E7%9A%84%E7%B1%BB%E5%8F%8A%E6%8E%A5%E5%8F%A3/</url>
+      <content type="html"><![CDATA[<p>在做蓝牙电话的时候，发现有的类或者api是被 @hide 掉的，例如 BluetoothPbapClient.java 没法调用。<br>最正确的方法应该是自己修改定制源码，再编译使用。但是如果仅是测试用，可以继续考虑使用 hide 的类及接口，这里做个简单的总结。</p><h1 id="不能访问的类或者接口"><a href="#不能访问的类或者接口" class="headerlink" title="不能访问的类或者接口"></a>不能访问的类或者接口</h1><p>Android 有两种类型的 API 不能通过 SDK 访问。一种是在 com.android.internal 包中的 API(源码路径为framework/base/core/)。另一种是被标记为 @hide 属性的类和接口。</p><p>对于internal API来说，从来都没有计划将其开放出来。它就是Android的“内部厨房”，对开发者来说，应该将其视作黑盒。</p><p>Hidden API之所以被隐藏，是想阻止开发者使用SDK中那些未完成或不稳定的部分（接口或类），因为其可能会在后续的版本中被修改或者移除。</p><p>当使用 Android SDK 进行开发的时候，应用默认引用了 android.jar，它位于 sdk-platform-{android版本}-android.jar。SDK 中默认移除了所有的被@hide标识的接口或者类以及 internal 包下的类。</p><p>当应用在设备上运行时，它会加载 framework.jar。简单来说，framework.jar 和 android.jar 等同，但是没有移除 internal API 和 hidden API。</p><a id="more"></a><h1 id="解决方案1：反射"><a href="#解决方案1：反射" class="headerlink" title="解决方案1：反射"></a>解决方案1：反射</h1><p>可以通过反射调到hide的类或者接口，这方面使用之前已经有介绍了：</p><p><a href="https://mcl-123.github.io/2019/03/15/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6%E5%8E%9F%E7%90%86%E5%8F%8A%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">反射机制原理及使用</a></p><h1 id="解决方案2：原始-android-jar"><a href="#解决方案2：原始-android-jar" class="headerlink" title="解决方案2：原始 android.jar"></a>解决方案2：原始 android.jar</h1><p>我们需要修改android.jar，这样它才能包含所有的*.class文件（包括internal和hidden API类）。有两种办法：</p><h2 id="编译源码"><a href="#编译源码" class="headerlink" title="编译源码"></a>编译源码</h2><p>Android是一个开源工程。我们可以下载源码并搭建编译环境，这样它就不能移除那些internal和hidden的类了。</p><h2 id="从模拟器中提取"><a href="#从模拟器中提取" class="headerlink" title="从模拟器中提取"></a>从模拟器中提取</h2><p>每个模拟器或真机在运行时都会有一个等同android.jar的东西。我们可以从这里拿到jar文件，提取出原始的.class文件，并拷贝到Android SDK的android.jar中。</p><p>具体步骤可以看这里：<a href="https://blog.csdn.net/hudan2714/article/details/7853908" target="_blank" rel="noopener">android怎样调用@hide和internal API</a></p><h2 id="android-hidden-api"><a href="#android-hidden-api" class="headerlink" title="android-hidden-api"></a>android-hidden-api</h2><p>GitHub 上有一个项目：<a href="https://github.com/anggrayudi/android-hidden-api" target="_blank" rel="noopener">android-hidden-api</a>，里面提供了众多版本完整的 android.jar 包</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在开发中使用隐藏 API 和内部 API 是不推荐的做法，因为在后续版本中很可能大改动。</p>]]></content>
+      
+      <categories>
+          
+          <category> Android </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hide </tag>
+            
+            <tag> framework </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>蓝牙电话apk的实现及源码分析</title>
       <link href="/2019/03/20/%E8%93%9D%E7%89%99%E7%94%B5%E8%AF%9Dapk%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/"/>
       <url>/2019/03/20/%E8%93%9D%E7%89%99%E7%94%B5%E8%AF%9Dapk%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</url>
@@ -547,8 +570,6 @@
             
             <tag> Kotlin </tag>
             
-            <tag> class </tag>
-            
             <tag> 数据类 </tag>
             
             <tag> copy </tag>
@@ -556,6 +577,8 @@
             <tag> componentN </tag>
             
             <tag> data </tag>
+            
+            <tag> class </tag>
             
         </tags>
       
