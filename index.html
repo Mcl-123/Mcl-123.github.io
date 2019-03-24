@@ -303,6 +303,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/android-源码下载及编译/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jackie Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JackieMa's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/android-源码下载及编译/" itemprop="url">android 源码下载及编译</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T18:40:50+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/24/android-源码下载及编译/" class="leancloud_visitors" data-flag-title="android 源码下载及编译">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Android-源码下载"><a href="#Android-源码下载" class="headerlink" title="Android 源码下载"></a>Android 源码下载</h1><p>@@@@@@@@@@@@@@源码下载@@@@@@@@@@@@@<br>mkdir ~/bin<br>PATH=~/bin:$PATH<br>curl <a href="https://storage.googleapis.com/git-repo-downloads/repo" target="_blank" rel="noopener">https://storage.googleapis.com/git-repo-downloads/repo</a> &gt; ~/bin/repo</p>
+<h2 id="如果上述-URL-不可访问，可以用下面的："><a href="#如果上述-URL-不可访问，可以用下面的：" class="headerlink" title="如果上述 URL 不可访问，可以用下面的："></a>如果上述 URL 不可访问，可以用下面的：</h2><h2 id="curl-sSL-‘https-gerrit-googlesource-proxy-ustclug-org-git-repo-master-repo-format-TEXT-39-base64-d-gt-bin-repo"><a href="#curl-sSL-‘https-gerrit-googlesource-proxy-ustclug-org-git-repo-master-repo-format-TEXT-39-base64-d-gt-bin-repo" class="headerlink" title="curl -sSL  ‘https://gerrit-googlesource.proxy.ustclug.org/git-repo/+/master/repo?format=TEXT&#39; |base64 -d &gt; ~/bin/repo"></a>curl -sSL  ‘<a href="https://gerrit-googlesource.proxy.ustclug.org/git-repo/+/master/repo?format=TEXT&#39;" target="_blank" rel="noopener">https://gerrit-googlesource.proxy.ustclug.org/git-repo/+/master/repo?format=TEXT&#39;</a> |base64 -d &gt; ~/bin/repo</h2><p>chmod a+x ~/bin/repo</p>
+<p>mkdir WORKING_DIRECTORY<br>cd WORKING_DIRECTORY</p>
+<p>初始化仓库：<br>repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest</p>
+<h2 id="如果提示无法连接到-gerrit-googlesource-com，可以编辑-bin-repo，把-REPO-URL-一行替换成下面的："><a href="#如果提示无法连接到-gerrit-googlesource-com，可以编辑-bin-repo，把-REPO-URL-一行替换成下面的：" class="headerlink" title="如果提示无法连接到 gerrit.googlesource.com，可以编辑 ~/bin/repo，把 REPO_URL 一行替换成下面的："></a>如果提示无法连接到 gerrit.googlesource.com，可以编辑 ~/bin/repo，把 REPO_URL 一行替换成下面的：</h2><h2 id="REPO-URL-‘https-gerrit-googlesource-proxy-ustclug-org-git-repo-39"><a href="#REPO-URL-‘https-gerrit-googlesource-proxy-ustclug-org-git-repo-39" class="headerlink" title="REPO_URL = ‘https://gerrit-googlesource.proxy.ustclug.org/git-repo&#39;"></a>REPO_URL = ‘<a href="https://gerrit-googlesource.proxy.ustclug.org/git-repo&#39;" target="_blank" rel="noopener">https://gerrit-googlesource.proxy.ustclug.org/git-repo&#39;</a></h2><p>如果需要某个特定的 Android 版本（Android 版本列表）：<br>repo init -u git://mirrors.ustc.edu.cn/aosp/platform/manifest -b android-4.0.1_r1</p>
+<p>同步源码树（以后只需执行这条命令来同步）：<br>repo sync</p>
+<h1 id="Android-源码编译"><a href="#Android-源码编译" class="headerlink" title="Android 源码编译"></a>Android 源码编译</h1><p><a href="https://www.jianshu.com/p/367f0886e62b" target="_blank" rel="noopener">自己动手编译Android源码(超详细)</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/如何使用hide掉的类及接口/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1709,163 +1868,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/21/BroadcastReceiver-静态注册与动态注册/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jackie Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JackieMa's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/21/BroadcastReceiver-静态注册与动态注册/" itemprop="url">BroadcastReceiver 静态注册与动态注册</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-21T21:51:51+08:00">
-                2019-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/02/21/BroadcastReceiver-静态注册与动态注册/" class="leancloud_visitors" data-flag-title="BroadcastReceiver 静态注册与动态注册">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>上篇文章提到了 使用自定义uri用于外部启动 app，而我们也可以使用广播来启动外部app，这篇文章简单的介绍下android广播的使用。</p>
-<h1 id="BroadcastReceiver-静态注册与动态注册"><a href="#BroadcastReceiver-静态注册与动态注册" class="headerlink" title="BroadcastReceiver 静态注册与动态注册"></a>BroadcastReceiver 静态注册与动态注册</h1><h2 id="接收广播"><a href="#接收广播" class="headerlink" title="接收广播"></a>接收广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//  UI 线程，不建议过多操作</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 注：启动Activity在这些类中是可以的，但是需要创建一个新的task。一般情况不推荐, 见Context 干货：(https://www.jianshu.com/p/881acfafd18d)</span></span><br><span class="line">        <span class="comment">// activityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="静态注册"><a href="#静态注册" class="headerlink" title="静态注册"></a>静态注册</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">receiver</span> <span class="attr">android:name</span>=<span class="string">".MyReceiver"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"music"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="动态注册"><a href="#动态注册" class="headerlink" title="动态注册"></a>动态注册</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">    IntentFilter filter=<span class="keyword">new</span> IntentFilter(<span class="string">"music"</span>);</span><br><span class="line">    mBroadcast =<span class="keyword">new</span> MyReceiver();</span><br><span class="line">    registerReceiver(mBroadcast,filter);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    unregisterReceiver(mBroadcast);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="发送广播"><a href="#发送广播" class="headerlink" title="发送广播"></a>发送广播</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"music"</span>);</span><br><span class="line"><span class="comment">// 8.0后，静态注册广播接收者时，需 setComponent()</span></span><br><span class="line">intent.setComponent(<span class="keyword">new</span> ComponentName(<span class="string">"com.example.pvwav.broadcastreceiver"</span>, <span class="string">"com.example.pvwav.broadcastreceiver.MyReceiver"</span>));</span><br><span class="line">sendBroadcast(intent);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1916,7 +1918,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1938,7 +1940,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
