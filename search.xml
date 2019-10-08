@@ -3,6 +3,27 @@
   
     
     <entry>
+      <title>android 无线调试</title>
+      <link href="/2019/10/08/android-%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95/"/>
+      <url>/2019/10/08/android-%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95/</url>
+      <content type="html"><![CDATA[<p>使用 Android Wifi ADB 插件</p><p><img src="/images/Android_Wifi_ADB.png" alt="Android Wifi ADB"></p><ol><li>安装以上插件,并重启 AS</li><li>将手机连接至电脑,并确保电脑和手机在同一个网络下</li><li>打开命令行,输入 adb tcpip 5555</li></ol><p>然后就可以进行远程调试了.</p>]]></content>
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android Wifi ADB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>android 源码下载及编译</title>
       <link href="/2019/03/24/android-%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD%E5%8F%8A%E7%BC%96%E8%AF%91/"/>
       <url>/2019/03/24/android-%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD%E5%8F%8A%E7%BC%96%E8%AF%91/</url>
@@ -327,6 +348,27 @@
         <tags>
             
             <tag> gradle </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>android 无线调试</title>
+      <link href="/2019/02/13/android%20%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%952/"/>
+      <url>/2019/02/13/android%20%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%952/</url>
+      <content type="html"><![CDATA[<p>使用 Android Wifi ADB 插件</p><p><img src="/images/Android_Wifi_ADB.jpg" alt="Android Wifi ADB"></p><ol><li>安装以上插件,并重启 AS</li><li>将手机连接至电脑,并确保电脑和手机在同一个网络下</li><li>打开命令行,输入 adb tcpip 5555</li></ol><p>然后就可以进行远程调试了.</p>]]></content>
+      
+      <categories>
+          
+          <category> 工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android Wifi ADB </tag>
             
         </tags>
       
