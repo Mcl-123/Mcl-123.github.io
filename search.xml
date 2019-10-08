@@ -354,27 +354,6 @@
     </entry>
     
     <entry>
-      <title>android 无线调试</title>
-      <link href="/2019/02/13/android%20%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%952/"/>
-      <url>/2019/02/13/android%20%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%952/</url>
-      <content type="html"><![CDATA[<p>使用 Android Wifi ADB 插件</p><p><img src="/images/Android_Wifi_ADB.jpg" alt="Android Wifi ADB"></p><ol><li>安装以上插件,并重启 AS</li><li>将手机连接至电脑,并确保电脑和手机在同一个网络下</li><li>打开命令行,输入 adb tcpip 5555</li></ol><p>然后就可以进行远程调试了.</p>]]></content>
-      
-      <categories>
-          
-          <category> 工具 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Android Wifi ADB </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>android studio 无法正常启动</title>
       <link href="/2019/02/13/android-studio-%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E5%90%AF%E5%8A%A8/"/>
       <url>/2019/02/13/android-studio-%E6%97%A0%E6%B3%95%E6%AD%A3%E5%B8%B8%E5%90%AF%E5%8A%A8/</url>
