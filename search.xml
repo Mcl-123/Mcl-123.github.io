@@ -637,6 +637,8 @@
             
             <tag> Kotlin </tag>
             
+            <tag> class </tag>
+            
             <tag> 数据类 </tag>
             
             <tag> copy </tag>
@@ -644,8 +646,6 @@
             <tag> componentN </tag>
             
             <tag> data </tag>
-            
-            <tag> class </tag>
             
         </tags>
       
