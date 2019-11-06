@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-06T14:26:45.899Z</updated>
+  <updated>2019-11-06T14:41:34.429Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="http://yoursite.com/2019/11/06/Android-Daily-Interview/"/>
     <id>http://yoursite.com/2019/11/06/Android-Daily-Interview/</id>
     <published>2019-11-06T14:21:47.000Z</published>
-    <updated>2019-11-06T14:26:45.899Z</updated>
+    <updated>2019-11-06T14:41:34.429Z</updated>
     
-    <content type="html"><![CDATA[<p>以下内容参考 <a href="https://github.com/Moosphan/Android-Daily-Interview" target="_blank" rel="noopener">Android Daily Interview</a><br>小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！</p>]]></content>
+    <content type="html"><![CDATA[<p>以下内容参考 <a href="https://github.com/Moosphan/Android-Daily-Interview" target="_blank" rel="noopener">Android Daily Interview</a><br>小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！</p><a id="more"></a><h2 id="1-自定义-Handler-时如何有效地避免内存泄漏问题？"><a href="#1-自定义-Handler-时如何有效地避免内存泄漏问题？" class="headerlink" title="1. 自定义 Handler 时如何有效地避免内存泄漏问题？"></a>1. 自定义 Handler 时如何有效地避免内存泄漏问题？</h2><p>解决方案: </p><ol><li>自定义静态 Handler</li><li>加一个弱引用</li><li>ondestroy()时, removecallbacksandmessages去清除Message和Runnable</li></ol><p>原因:<br>非静态的内部类会持有外部类的引用,若 Activity 退出时, handler 队列中有未处理的 Message, handler 持有 activity, Message 持有 handler, MessageQueen 持有 Message, 则 activity 无法销毁, 就会造成内存泄漏.</p><h2 id="2-Activity-与-Fragment-之间常见的几种通信方式？"><a href="#2-Activity-与-Fragment-之间常见的几种通信方式？" class="headerlink" title="2. Activity 与 Fragment 之间常见的几种通信方式？"></a>2. Activity 与 Fragment 之间常见的几种通信方式？</h2><h2 id="3-一般什么情况下会导致内存泄漏问题？"><a href="#3-一般什么情况下会导致内存泄漏问题？" class="headerlink" title="3. 一般什么情况下会导致内存泄漏问题？"></a>3. 一般什么情况下会导致内存泄漏问题？</h2><h2 id="4-LaunchMode-的应用场景？"><a href="#4-LaunchMode-的应用场景？" class="headerlink" title="4. LaunchMode 的应用场景？"></a>4. LaunchMode 的应用场景？</h2><h2 id="5-哪些情况下会导致oom问题？"><a href="#5-哪些情况下会导致oom问题？" class="headerlink" title="5. 哪些情况下会导致oom问题？"></a>5. 哪些情况下会导致oom问题？</h2>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;以下内容参考 &lt;a href=&quot;https://github.com/Moosphan/Android-Daily-Interview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Android Daily Interview&lt;/a&gt;&lt;br&gt;小聚成河，大
-      
+      &lt;p&gt;以下内容参考 &lt;a href=&quot;https://github.com/Moosphan/Android-Daily-Interview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Android Daily Interview&lt;/a&gt;&lt;br&gt;小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！&lt;/p&gt;
     
     </summary>
     
@@ -153,11 +150,11 @@
       <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
     
+      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
+    
       <category term="hide" scheme="http://yoursite.com/tags/hide/"/>
     
       <category term="framework" scheme="http://yoursite.com/tags/framework/"/>
-    
-      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   
@@ -285,9 +282,9 @@
       <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
     
-      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
-    
       <category term="Reflection" scheme="http://yoursite.com/tags/Reflection/"/>
+    
+      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
