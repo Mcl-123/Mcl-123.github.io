@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-10-22T12:32:18.347Z</updated>
+  <updated>2019-11-06T14:26:45.899Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android Daily Interview</title>
+    <link href="http://yoursite.com/2019/11/06/Android-Daily-Interview/"/>
+    <id>http://yoursite.com/2019/11/06/Android-Daily-Interview/</id>
+    <published>2019-11-06T14:21:47.000Z</published>
+    <updated>2019-11-06T14:26:45.899Z</updated>
+    
+    <content type="html"><![CDATA[<p>以下内容参考 <a href="https://github.com/Moosphan/Android-Daily-Interview" target="_blank" rel="noopener">Android Daily Interview</a><br>小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;以下内容参考 &lt;a href=&quot;https://github.com/Moosphan/Android-Daily-Interview&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Android Daily Interview&lt;/a&gt;&lt;br&gt;小聚成河，大
+      
+    
+    </summary>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+      <category term="interview" scheme="http://yoursite.com/tags/interview/"/>
+    
+  </entry>
   
   <entry>
     <title>Dagger2 超全使用攻略</title>
@@ -48,7 +76,7 @@
     <link href="http://yoursite.com/2019/10/08/android-%E6%97%A0%E7%BA%BF%E8%B0%83%E8%AF%95/"/>
     <id>http://yoursite.com/2019/10/08/android-无线调试/</id>
     <published>2019-10-08T13:35:32.000Z</published>
-    <updated>2019-10-08T13:37:01.922Z</updated>
+    <updated>2019-11-06T14:19:50.219Z</updated>
     
     <content type="html"><![CDATA[<p>使用 Android Wifi ADB 插件</p><p><img src="/images/Android_Wifi_ADB.png" alt="Android Wifi ADB"></p><ol><li>安装以上插件,并重启 AS</li><li>将手机连接至电脑,并确保电脑和手机在同一个网络下</li><li>打开命令行,输入 adb tcpip 5555</li></ol><p>然后就可以进行远程调试了.</p>]]></content>
     
@@ -125,11 +153,11 @@
       <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
     
-      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
-    
       <category term="hide" scheme="http://yoursite.com/tags/hide/"/>
     
       <category term="framework" scheme="http://yoursite.com/tags/framework/"/>
+    
+      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
     
   </entry>
   
@@ -257,9 +285,9 @@
       <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
     
     
-      <category term="Reflection" scheme="http://yoursite.com/tags/Reflection/"/>
-    
       <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
+    
+      <category term="Reflection" scheme="http://yoursite.com/tags/Reflection/"/>
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
     
@@ -538,33 +566,6 @@
       <category term="源码" scheme="http://yoursite.com/tags/%E6%BA%90%E7%A0%81/"/>
     
       <category term="Wallpaper" scheme="http://yoursite.com/tags/Wallpaper/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>jar、aar 的生成与导入</title>
-    <link href="http://yoursite.com/2019/01/27/jar-aar-%E7%94%9F%E6%88%90%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
-    <id>http://yoursite.com/2019/01/27/jar-aar-生成与使用/</id>
-    <published>2019-01-27T13:45:23.000Z</published>
-    <updated>2019-01-27T15:02:37.748Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文将介绍 jar、aar 包的生成与导入。</p><a id="more"></a><h1 id="jar-包的生成"><a href="#jar-包的生成" class="headerlink" title="jar 包的生成"></a>jar 包的生成</h1><ol><li>创建一个普通项目My Application。</li><li>新建module：菜单栏 File -&gt; New -&gt; New Module</li><li>选择 Android Librar，并确认。</li><li>菜单栏 File -&gt; Project Structure</li><li>将新建的 module 导入 app 中。</li></ol><p><img src="/images/将module导入app.png" alt="将module导入app"></p><ol start="6"><li><p>修改 module 项目的 build.gradle 文件，添加如下代码： (注意：与 buildTypes 平级)<br> 方式一：打包的 jar 包括 .class 文件及资源文件等</p> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def _BASENAME = <span class="string">"TestJar"</span></span><br><span class="line">def _VERSION = <span class="string">"_V1.0"</span></span><br><span class="line">def _DestinationPath = <span class="string">"build"</span> <span class="comment">//生成jar包的位置</span></span><br><span class="line">def zipFile = file(<span class="string">'build/intermediates/packaged-classes/release/classes.jar'</span>) <span class="comment">//待打包文件位置</span></span><br><span class="line"></span><br><span class="line"><span class="function">task <span class="title">deleteBuild</span><span class="params">(type:Delete)</span></span>&#123;</span><br><span class="line">    delete _DestinationPath + _BASENAME + _VERSION + <span class="string">".jar"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">task <span class="title">makeJar</span><span class="params">(type:Jar)</span></span>&#123;</span><br><span class="line">    <span class="function">from <span class="title">zipTree</span><span class="params">(zipFile)</span></span></span><br><span class="line"><span class="function">    from <span class="title">fileTree</span><span class="params">(dir:<span class="string">'src/main'</span>,includes:[<span class="string">'assets/**'</span>])</span> <span class="comment">//将assets目录打入jar包</span></span></span><br><span class="line"><span class="function">    baseName </span>= _BASENAME + _VERSION</span><br><span class="line">    destinationDir = file(_DestinationPath)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">makeJar.dependsOn(deleteBuild, build)</span><br></pre></td></tr></table></figure><p> 方式二：打包的 jar 只有源代码的.class 文件，不包含资源文件</p> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">task <span class="title">makeJar</span><span class="params">(type: Copy)</span> </span>&#123;</span><br><span class="line">    delete <span class="string">'build/TestJar_V1.0.jar'</span> <span class="comment">//删除之前的旧jar包</span></span><br><span class="line">    from(<span class="string">'build/intermediates/packaged-classes/release/'</span>) <span class="comment">//从这个目录下取出默认jar包</span></span><br><span class="line">    into(<span class="string">'build/'</span>) <span class="comment">//将jar包输出到指定目录下</span></span><br><span class="line">    include(<span class="string">'classes.jar'</span>)</span><br><span class="line">    rename(<span class="string">'classes.jar'</span>, <span class="string">'TestJar_V1.0.jar'</span>) <span class="comment">//自定义jar包的名字</span></span><br><span class="line">&#125;</span><br><span class="line">makeJar.dependsOn(build)</span><br></pre></td></tr></table></figure></li><li><p>找到 Gradle 中的 makeJar 命令：Gradle 一般在 android studio 右侧，点击，选择 Module 中的 other，找到 makeJar，双击执行。</p></li><li>编译完成后，在对应位置找到生成的 jar 包即可。</li></ol><p><img src="/images/生成jar包位置.png" alt="生成jar包位置"></p><h1 id="jar-包的导入"><a href="#jar-包的导入" class="headerlink" title="jar 包的导入"></a>jar 包的导入</h1><ol><li>将 jar 包拷贝至 app/libs/ 目录下</li><li>右键 jar 包，选择 Add As Library 确认即可。</li></ol><h1 id="aar-包的生成"><a href="#aar-包的生成" class="headerlink" title="aar 包的生成"></a>aar 包的生成</h1><ol><li>同 jar 包的生成步骤中 1-5，新建 module 并导入 app 中。</li><li>找到 Gradle 中的 assembleRelease 命令：Gradle 一般在 android studio 右侧，点击，选择 Module 中的 build，找到 assembleRelease，双击执行。</li></ol><p><img src="/images/assembleRelease.png" alt="assembleRelease"></p><ol start="3"><li>编译成功后，可以在 module 下的 build/outputs/aar/ 目录下看到生成的 aar 文件</li></ol><p><img src="/images/aar生成位置.png" alt="aar生成位置"></p><h1 id="aar-包的导入"><a href="#aar-包的导入" class="headerlink" title="aar 包的导入"></a>aar 包的导入</h1><ol><li>将 jar 包拷贝至 app/libs/ 目录下</li><li>修改 app 下的 build.gradle 文件，添加如下代码：</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 与 buildTypes 同级</span></span><br><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs <span class="string">'libs'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 位于 dependencies 下</span></span><br><span class="line">implementation(name:<span class="string">'mylibrary-release'</span>, ext:<span class="string">'aar'</span>)</span><br></pre></td></tr></table></figure><ol start="3"><li>重新编译即可</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文将介绍 jar、aar 包的生成与导入。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Android" scheme="http://yoursite.com/categories/Android/"/>
-    
-    
-      <category term="java" scheme="http://yoursite.com/tags/java/"/>
-    
-      <category term="jar" scheme="http://yoursite.com/tags/jar/"/>
-    
-      <category term="aar" scheme="http://yoursite.com/tags/aar/"/>
     
   </entry>
   
