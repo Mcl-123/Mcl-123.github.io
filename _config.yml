@@ -92,3 +92,10 @@ algolia:
   applicationID: '8N21YAUPVJ'
   indexName: 'mcl-123'
   chunkSize: 5000
+
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
