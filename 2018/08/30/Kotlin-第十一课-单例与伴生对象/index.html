@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Kotlin,伴生对象,单例," />
+  <meta name="keywords" content="Kotlin,单例,伴生对象," />
 
 
 
@@ -83,7 +83,7 @@
 
 
 <meta name="description" content="单例Kotlin 中没有 static 关键字, 如果需要实现单例, 可以使用关键字 object 声明一个对象, 对象的构造器不能提供构造参数.在第一次使用的时候会被初始化, 可用于提供常量或共享不可变对象.">
-<meta name="keywords" content="Kotlin,伴生对象,单例">
+<meta name="keywords" content="Kotlin,单例,伴生对象">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kotlin 第十一课 -- 单例与伴生对象">
 <meta property="og:url" content="http://yoursite.com/2018/08/30/Kotlin-第十一课-单例与伴生对象/index.html">
@@ -254,26 +254,18 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
+  _st('install', 'ZqMFUbtY6C1zunsA8KTS','2.0.0');
+</script>
 
 
 
@@ -446,9 +438,9 @@
           
             <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
           
-            <a href="/tags/伴生对象/" rel="tag"><i class="fa fa-tag"></i> 伴生对象</a>
-          
             <a href="/tags/单例/" rel="tag"><i class="fa fa-tag"></i> 单例</a>
+          
+            <a href="/tags/伴生对象/" rel="tag"><i class="fa fa-tag"></i> 伴生对象</a>
           
         </div>
       
@@ -1014,7 +1006,7 @@
 
                   // select top N slices in content
 
-                  var upperBound = parseInt('5');
+                  var upperBound = parseInt('1');
                   if (upperBound >= 0) {
                     slicesOfContent = slicesOfContent.slice(0, upperBound);
                   }
@@ -1125,19 +1117,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
