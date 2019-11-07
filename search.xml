@@ -5,14 +5,40 @@
     <url>/2019/11/06/Android-Daily-Interview/</url>
     <content><![CDATA[<p>以下内容参考 <a href="https://github.com/Moosphan/Android-Daily-Interview" target="_blank" rel="noopener">Android Daily Interview</a><br>小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！</p>
 <a id="more"></a>
-<h2 id="1-自定义-Handler-时如何有效地避免内存泄漏问题？"><a href="#1-自定义-Handler-时如何有效地避免内存泄漏问题？" class="headerlink" title="1. 自定义 Handler 时如何有效地避免内存泄漏问题？"></a>1. 自定义 Handler 时如何有效地避免内存泄漏问题？</h2><p>解决方案: </p>
+<h2 id="自定义-Handler-时如何有效地避免内存泄漏问题？"><a href="#自定义-Handler-时如何有效地避免内存泄漏问题？" class="headerlink" title="自定义 Handler 时如何有效地避免内存泄漏问题？"></a>自定义 Handler 时如何有效地避免内存泄漏问题？</h2><p>原因:<br>非静态的内部类会持有外部类的引用,若 Activity 退出时, handler 队列中有未处理的 Message, handler 持有 activity, Message 持有 handler, MessageQueen 持有 Message, 则 activity 无法销毁, 就会造成内存泄漏.</p>
+<p>解决方案: </p>
 <ol>
 <li>自定义静态 Handler</li>
 <li>加一个弱引用</li>
 <li>ondestroy()时, removecallbacksandmessages去清除Message和Runnable</li>
 </ol>
-<p>原因:<br>非静态的内部类会持有外部类的引用,若 Activity 退出时, handler 队列中有未处理的 Message, handler 持有 activity, Message 持有 handler, MessageQueen 持有 Message, 则 activity 无法销毁, 就会造成内存泄漏.</p>
-<h2 id="2-Activity-与-Fragment-之间常见的几种通信方式？"><a href="#2-Activity-与-Fragment-之间常见的几种通信方式？" class="headerlink" title="2. Activity 与 Fragment 之间常见的几种通信方式？"></a>2. Activity 与 Fragment 之间常见的几种通信方式？</h2><h2 id="3-一般什么情况下会导致内存泄漏问题？"><a href="#3-一般什么情况下会导致内存泄漏问题？" class="headerlink" title="3. 一般什么情况下会导致内存泄漏问题？"></a>3. 一般什么情况下会导致内存泄漏问题？</h2><h2 id="4-LaunchMode-的应用场景？"><a href="#4-LaunchMode-的应用场景？" class="headerlink" title="4. LaunchMode 的应用场景？"></a>4. LaunchMode 的应用场景？</h2><h2 id="5-哪些情况下会导致oom问题？"><a href="#5-哪些情况下会导致oom问题？" class="headerlink" title="5. 哪些情况下会导致oom问题？"></a>5. 哪些情况下会导致oom问题？</h2>]]></content>
+<h2 id="Activity-与-Fragment-之间常见的几种通信方式？"><a href="#Activity-与-Fragment-之间常见的几种通信方式？" class="headerlink" title="Activity 与 Fragment 之间常见的几种通信方式？"></a>Activity 与 Fragment 之间常见的几种通信方式？</h2><ol>
+<li>接口</li>
+<li>Bundle</li>
+<li>广播</li>
+<li>EventBus</li>
+<li>viewModel </li>
+</ol>
+<p>再简单说: 两个 Java 对象相互持有对方的引用,直接回调就行.</p>
+<h2 id="一般什么情况下会导致内存泄漏问题？"><a href="#一般什么情况下会导致内存泄漏问题？" class="headerlink" title="一般什么情况下会导致内存泄漏问题？"></a>一般什么情况下会导致内存泄漏问题？</h2><p>原因: </p>
+<ol>
+<li>资源对象没关闭 ( Cursor、File 等)</li>
+<li>接收器、监听器没取消 (广播、EventBus等)</li>
+<li>持有 Activity 的 Context (Context 与 单例)</li>
+<li>非静态内部类持有外部类的引用所造成的 (handler)</li>
+<li>静态类持有非静态类对象 (工具类持有 Activity context)</li>
+</ol>
+<p>如何避免:</p>
+<ul>
+<li>编码规范上:</li>
+</ul>
+<ul>
+<li>内存监控体系:</li>
+</ul>
+<ul>
+<li>兜底策略:</li>
+</ul>
+<h2 id="LaunchMode-的应用场景？"><a href="#LaunchMode-的应用场景？" class="headerlink" title="LaunchMode 的应用场景？"></a>LaunchMode 的应用场景？</h2><h2 id="哪些情况下会导致oom问题？"><a href="#哪些情况下会导致oom问题？" class="headerlink" title="哪些情况下会导致oom问题？"></a>哪些情况下会导致oom问题？</h2>]]></content>
       <categories>
         <category>Android</category>
       </categories>
@@ -147,9 +173,9 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>反射</tag>
         <tag>hide</tag>
         <tag>framework</tag>
+        <tag>反射</tag>
       </tags>
   </entry>
   <entry>
@@ -440,8 +466,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Reflection</tag>
         <tag>反射</tag>
+        <tag>Reflection</tag>
         <tag>Java</tag>
       </tags>
   </entry>
