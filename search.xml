@@ -30,15 +30,49 @@
 </ol>
 <p>如何避免:</p>
 <ul>
-<li>编码规范上:</li>
+<li><p>编码规范上:</p>
+<ol>
+<li>资源对象用完一定要关闭，最好加finally</li>
+<li>接收器、监听器使用时候注册和取消成对出现</li>
+<li>context使用注意生命周期，如果是静态类引用直接用ApplicationContext</li>
+<li>使用静态内部类;合业务场景，设置软引用，弱引用，确保对象可以在合适的时机回收</li>
+<li>同 3</li>
+</ol>
+</li>
+<li><p>内存监控体系:</p>
+<ol>
+<li>使用ArtHook检测图片尺寸是否超出imageview自身宽高的2倍</li>
+<li>编码阶段Memery Profile看app的内存使用情况，是否存在内存抖动，内存泄漏，结合Mat分析内存泄漏</li>
+<li>使用LeakCannery自动化内存泄漏分析</li>
+<li>上报app使用期间待机内存、重点模块内存、OOM率</li>
+<li>报整体及重点模块的GC次数，GC时间</li>
+</ol>
+</li>
+<li><p>兜底策略:<br>  低内存状态回调，根据不同的内存等级做一些事情，比如在最严重的等级清空所有的bitmap，关掉所有界面，直接强制把app跳转到主界面，相当于app重新启动了一次一样，这样就避免了系统Kill应用进程，与其让系统kill进程还不如浪费一些用户体验，自己主动回收内存</p>
+</li>
 </ul>
-<ul>
-<li>内存监控体系:</li>
+<h2 id="LaunchMode-的应用场景？"><a href="#LaunchMode-的应用场景？" class="headerlink" title="LaunchMode 的应用场景？"></a>LaunchMode 的应用场景？</h2><h3 id="Standard-标准模式"><a href="#Standard-标准模式" class="headerlink" title="Standard 标准模式"></a>Standard 标准模式</h3><p>系统总是会在目标栈中创建新的activity实例。</p>
+<p>for example: 个人中心 -&gt; 粉丝列表 -&gt; 个人中心(粉丝的) -&gt; 粉丝列表(粉丝的)</p>
+<h3 id="SingleTop-栈顶模式"><a href="#SingleTop-栈顶模式" class="headerlink" title="SingleTop 栈顶模式"></a>SingleTop 栈顶模式</h3><ul>
+<li>如果这个 activity 实例已经存在目标栈的栈顶，系统会调用这个 activity 中的 onNewIntent() 方法，并传递 intent，而不会创建新的 activity 实例；</li>
+<li>如果不存在这个 activity 实例或者 activity 实例不在栈顶，则 SingleTop 和 Standard 作用是一样的。</li>
 </ul>
-<ul>
-<li>兜底策略:</li>
+<p>for example: 从消息中心点开的详情页面</p>
+<h3 id="SingleTask-栈中模式"><a href="#SingleTask-栈中模式" class="headerlink" title="SingleTask 栈中模式"></a>SingleTask 栈中模式</h3><ul>
+<li>不会存在多个实例，如果栈中不存在 activity 实例，系统会在新栈的根部创建一个新的 activity；</li>
+<li>如果这个 activity 实例已经存在，系统会把该 activity 栈上面的 其他 activity 都销毁，并调用该 activity 的 onNewIntent() 方法，而不会创建新的 activity 实例。</li>
 </ul>
-<h2 id="LaunchMode-的应用场景？"><a href="#LaunchMode-的应用场景？" class="headerlink" title="LaunchMode 的应用场景？"></a>LaunchMode 的应用场景？</h2><h2 id="哪些情况下会导致oom问题？"><a href="#哪些情况下会导致oom问题？" class="headerlink" title="哪些情况下会导致oom问题？"></a>哪些情况下会导致oom问题？</h2>]]></content>
+<p>for example: app 首页,从任何页面回来,都把上面的 activity 销毁</p>
+<h3 id="SingleInstance"><a href="#SingleInstance" class="headerlink" title="SingleInstance"></a>SingleInstance</h3><p>会启用一个新的栈结构，将 Acitvity 放置于这个新的栈结构中，并保证不再有其他 Activity 实例进入该新的栈。</p>
+<p>for example: 闹钟提醒页面、打电话页面，当你从正常页面调到闹钟提醒页面，再返回的时候，希望返回之前的页面，且不受影响。</p>
+<h2 id="哪些情况下会导致oom问题？"><a href="#哪些情况下会导致oom问题？" class="headerlink" title="哪些情况下会导致oom问题？"></a>哪些情况下会导致oom问题？</h2><p>简单说：</p>
+<ol>
+<li>申请内存的速度超出gc释放内存的速度， 例如大图加载</li>
+<li>过多的泄露也会导致溢出</li>
+</ol>
+<p>总结：</p>
+<p>1、根据java的内存模型会出现内存溢出的内存有堆内存、方法区内存、虚拟机栈内存、native方法区内存；<br>2、一般说的OOM基本都是针对堆内存；<br>3、对于堆内存溢出主的根本原因有两种<br>（1）app进程内存达到上限<br>（2）手机可用内存不足，这种情况并不是我们app消耗了很多内存，而是整个手机内存不足<br>4、而我们需要解决的主要是app的内存达到上限<br>5、对于app内存达到上限只有两种情况<br>（1）申请内存的速度超出gc释放内存的速度<br>（2）内存出现泄漏，gc无法回收泄漏的内存，导致可用内存越来越少<br>6、对于申请内存速度超出gc释放内存的速度主要有2种情况<br>（1）往内存中加载超大文件<br>（2）循环创建大量对象<br>7、一般申请内存的速度超出gc释放内存基本不会出现，内存泄漏才是出现问题的关键所在<br>8、内存泄漏常见场景<br>    见问题《一般什么情况下会导致内存泄漏问题？》<br>9、怎么对内存进行优化呢<br>三个方向<br>（1）为应用申请更大内存，把manifest上的largdgeheap设置为true<br>（2）减少内存的使用<br>①使用优化后的集合对象，比如SpaseArray；<br>②使用微信的mmkv替代sharedpreference；<br>③对于经常打log的地方使用StringBuilder来组拼，替代String拼接<br>④统一带有缓存的基础库，特别是图片库，如果用了两套不一样的图片加载库就会出现2个图片各自维护一套图片缓存<br>⑤给ImageView设置合适尺寸的图片，列表页显示缩略图，查看大图显示原图；图片使用软引用，内存不够及时回收<br>⑥优化业务架构设计，比如省市区数据分批加载，需要加载省就加载省，需要加载市就加载失去，避免一下子加载所有数据<br>（3）避免内存泄漏<br>同见问题《一般什么情况下会导致内存泄漏问题？》</p>
+<h2 id="如何实现多线程中的同步？"><a href="#如何实现多线程中的同步？" class="headerlink" title="如何实现多线程中的同步？"></a>如何实现多线程中的同步？</h2>]]></content>
       <categories>
         <category>Android</category>
       </categories>
@@ -173,9 +207,9 @@
         <category>Android</category>
       </categories>
       <tags>
+        <tag>反射</tag>
         <tag>hide</tag>
         <tag>framework</tag>
-        <tag>反射</tag>
       </tags>
   </entry>
   <entry>
@@ -466,8 +500,8 @@
         <category>Android</category>
       </categories>
       <tags>
-        <tag>反射</tag>
         <tag>Reflection</tag>
+        <tag>反射</tag>
         <tag>Java</tag>
       </tags>
   </entry>
