@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>《大话设计模式》之总结</title>
+    <url>/2020/05/20/%E3%80%8A%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E3%80%8B%E4%B9%8B%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<ol>
+<li>对象: 用一组可识别的特性和行为来标识的实体;<br> 类: 具有享用属性和功能的对象的抽象的集合;<br> 属性: 一个方法或一对方法,有 get()\set()调用;<br> 字段: 与类相关的变量, 通常是私有的;</li>
+<li>封装: 每个对象都包含它能进行操作所需要的所有信息.<br> 一般无需对外界公开的方法都应该设置成 private, 这才有利于”封装”.<br> 好处: - 减少耦合<pre><code>- 类内部的实现可以自由地修改
+- 类具有清晰的对外接口
+</code></pre></li>
+</ol>
+]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>GoF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《第一行代码》(第三版) 之 Kotlin 的总结</title>
     <url>/2020/05/20/%E3%80%8A%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E3%80%8B-%E7%AC%AC%E4%B8%89%E7%89%88-%E4%B9%8B-Kotlin-%E7%9A%84%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<ol>
