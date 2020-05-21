@@ -297,163 +297,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/06/Android-Daily-Interview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jackie Ma">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="JackieMa's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/06/Android-Daily-Interview/" itemprop="url">Android Daily Interview</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-06T22:21:47+08:00">
-                2019-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2019/11/06/Android-Daily-Interview/" class="leancloud_visitors" data-flag-title="Android Daily Interview">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">Visitors&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>以下内容参考 <a href="https://github.com/Moosphan/Android-Daily-Interview" target="_blank" rel="noopener">Android Daily Interview</a><br>小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/11/06/Android-Daily-Interview/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/20/《大话设计模式》之总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -557,15 +400,44 @@
 
       
         
-          
-            <ol>
+          <ol>
 <li>对象: 用一组可识别的特性和行为来标识的实体;<br> 类: 具有享用属性和功能的对象的抽象的集合;<br> 属性: 一个方法或一对方法,有 get()\set()调用;<br> 字段: 与类相关的变量, 通常是私有的;</li>
-<li>封装: 每个对象都包含它能进行操作所需要的所有信息.<br> 一般无需对外界公开的方法都应该设置成 private, 这才有利于”封装”.<br> 好处: - 减少耦合<pre><code>- 类内部的实现可以自由地修改
-- 类具有清晰的对外接口
+<li>封装: <pre><code>每个对象都包含它能进行操作所需要的所有信息.
+一般无需对外界公开的方法都应该设置成 private, 这才有利于&quot;封装&quot;.
+优点:
+    - 减少耦合
+    - 类内部的实现可以自由地修改
+    - 类具有清晰的对外接口
+PS: 房子, 门
+</code></pre></li>
+<li>继承:<pre><code>- 子类拥有父类非 private 的属性和功能
+- 子类具有自己的属性和功能, 即子类可以扩展父类没有的属性和功能
+- 子类可以重写父类的方法
+构造方法不能被继承,只能被调用.
+优点: - 使得所有子类公共的部分都放在了父类, 使得代码得到了共享, 避免重复
+      - 可使得修改或扩展继承而来的实现都比较容易
+缺点: - 父类变, 则子类不得不变
+      - 会破坏包装, 父类实现细节暴露给子类
+使用场景: 两个类之间是 &quot;is-a&quot; 的关系
+PS: 动物 - 猫\狗
+</code></pre></li>
+<li>多态:<pre><code>注意:
+    - 子类以父类的身份出现
+    - 子类在工作时以自己的方式来实现
+    - 子类以父亲的身份出现时, 子类特有的属性和方法不可以使用
+    PS: 京剧, 儿子替生病的父亲上台唱戏
+使用: 为了使子类的实例完全解体来自父类的类成员, 父类需要将该成员声明称抽象的.
+实现: 对象的声明必须是父类, 而不是子类, 实例化的对象是子类, 这才能实现多态.
+原理: 当方法被调用时, 无论对象是否被转换为其父类, 都只有位于对象继承链最末端的方法实现才会被调用.也就是说, 抽象方法是按照其运行时类型而非编译时类型进行动态绑定调用的.
 </code></pre></li>
 </ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/05/20/《大话设计模式》之总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -731,7 +603,7 @@ until  是左闭右开
 <li>Kotlin: publi、private、protected、internal</li>
 <li>Java 中默认是 default</li>
 <li><p>Kotlin 中默认是 public</p>
-<p>修饰符 | Java |  Kotlin<br>-|-|-<br>public | 所有类可见 | 所有类可见 |<br>private | 当前类可见 | 当前类可见 |<br>protected | 当前类、子类、同一包路径下的类可见 | 当前类、子类可见 |<br>default | 同一包路径下的类可见 | 无 |</p>
+<p>修饰符 | Java |  Kotlin<br>-|-|-<br>public | 所有类可见 | 所有类可见 |<br>private | 当前类可见 | 当前类可见 |<br>protected | 当前类、子类、同一包路径下的类可见 | 当前类、子类可见 |<br>default | 同一包路径下的类可见 | 无 |<br>internal | 无 | 同一模块中的类可见 |</p>
 </li>
 </ul>
 </li>
@@ -739,6 +611,163 @@ until  是左闭右开
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/05/20/《第一行代码》-第三版-之-Kotlin-的总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/06/Android-Daily-Interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jackie Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JackieMa's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/06/Android-Daily-Interview/" itemprop="url">Android Daily Interview</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-06T22:21:47+08:00">
+                2019-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/11/06/Android-Daily-Interview/" class="leancloud_visitors" data-flag-title="Android Daily Interview">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>以下内容参考 <a href="https://github.com/Moosphan/Android-Daily-Interview" target="_blank" rel="noopener">Android Daily Interview</a><br>小聚成河，大聚成江，坚持下来的都是时代的铸就者，共勉之！</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/06/Android-Daily-Interview/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>

@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
 <meta property="og:description" content="循环： ..     是左闭右闭downTo 是左闭右闭 until  是左闭右开  类：任何一个非抽象类默认都是不可以被继承的。 构造函数：子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。子类在主构造函数中声明成 val 或 var 的参数将自动成为该类的字段，就会与父类同名的字段冲突。因此，同名的参数前面我们不用加任何关键字，让它的作用域仅限定在主构造函数当中。 子类没">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-20T14:41:46.476Z">
+<meta property="og:updated_time" content="2020-05-21T13:34:28.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《第一行代码》(第三版) 之 Kotlin 的总结">
 <meta name="twitter:description" content="循环： ..     是左闭右闭downTo 是左闭右闭 until  是左闭右开  类：任何一个非抽象类默认都是不可以被继承的。 构造函数：子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。子类在主构造函数中声明成 val 或 var 的参数将自动成为该类的字段，就会与父类同名的字段冲突。因此，同名的参数前面我们不用加任何关键字，让它的作用域仅限定在主构造函数当中。 子类没">
@@ -414,14 +414,13 @@ until  是左闭右开
 <li>Kotlin: publi、private、protected、internal</li>
 <li>Java 中默认是 default</li>
 <li><p>Kotlin 中默认是 public</p>
-<p>修饰符 | Java |  Kotlin<br>-|-|-<br>public | 所有类可见 | 所有类可见 |<br>private | 当前类可见 | 当前类可见 |<br>protected | 当前类、子类、同一包路径下的类可见 | 当前类、子类可见 |<br>default | 同一包路径下的类可见 | 无 |</p>
+<p>修饰符 | Java |  Kotlin<br>-|-|-<br>public | 所有类可见 | 所有类可见 |<br>private | 当前类可见 | 当前类可见 |<br>protected | 当前类、子类、同一包路径下的类可见 | 当前类、子类可见 |<br>default | 同一包路径下的类可见 | 无 |<br>internal | 无 | 同一模块中的类可见 |</p>
 </li>
 </ul>
 </li>
 </ol>
 <a id="more"></a>
-<pre><code>internal | 无 | 同一模块中的类可见 |
-</code></pre><ol start="6">
+<ol start="6">
 <li>数据类：类名前面声明了 data 关键字，Kotlin 会根据主构造函数中的参数帮自动生成 equals()、hashCode()、toString() 等方法。</li>
 <li>单例类：object SingleTon {}</li>
 <li>集合：创建：listOf(“a”, “b”) ; mutableListOf(“a”, “b”)<pre><code>      setOf(); mutableSetOf()
