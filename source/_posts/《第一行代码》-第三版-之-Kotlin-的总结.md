@@ -27,10 +27,10 @@ tags:
     private | 当前类可见 | 当前类可见 |
     protected | 当前类、子类、同一包路径下的类可见 | 当前类、子类可见 |
     default | 同一包路径下的类可见 | 无 |
+    internal | 无 | 同一模块中的类可见 |
 
 <!-- more -->
 
-    internal | 无 | 同一模块中的类可见 |
 6. 数据类：类名前面声明了 data 关键字，Kotlin 会根据主构造函数中的参数帮自动生成 equals()、hashCode()、toString() 等方法。
 7. 单例类：object SingleTon {}
 8. 集合：创建：listOf("a", "b") ; mutableListOf("a", "b")
