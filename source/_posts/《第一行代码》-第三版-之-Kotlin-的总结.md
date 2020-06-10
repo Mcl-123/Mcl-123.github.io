@@ -202,3 +202,69 @@ tags:
                 (Dao 要做的事情就是覆盖所有的业务需求，使得业务永远只需要与 Dao 层进行交互，而不必和底层数据库打交道)
             - Database：定义数据库中的关键信息
                 (定义3个部分内容, 数据库的版本号、包含哪些实体类、提供 Dao 层的访问实例)
+
+以下是自己发现的问题:
+
+51. Kotlin 中 使用反射类时, 使用 Class.forName(xxx) 时, 需要传进完整的包名, 如下:
+
+```kotlin
+val forName = Class.forName(Printer2::class.java.name)
+val forName = Class.forName("Printer2") // 这样不正确, 找不到 Printer2 类
+```
+
+52. data class 对象可能会绕过 Kotlin 的空指针检查，也可能未执行父类构造方法就把对象构造出来， 如下：
+
+```kotlin
+定义一个父类: 
+public class People {
+    public People(){
+        System.out.println("people cons");
+    }
+}
+写一个 Bean, 接收服务器返回的数据：
+data class Person(var name: String, var age: Int) : People()
+然后构造该对象: 
+val gson = Gson()
+val person = gson.fromJson<Person>("{\"age\":\"12\"}", Person::class.java)
+println(person.name )   // 打印 null， 没有走父类的构造函数
+```
+
+原因在 Gson 的源码中: 
+
+Gson 创建对象，一般都会走到以下三个方法里：
+- newDefaultConstructor         // 尝试获取无参的构造函数，如果找到，则通过 newInstance 反射的方式构建对象
+- newDefaultImplementationConstructor   // 这个方法里面都是一些集合类相关对象的逻辑，直接跳过
+- newUnsafeAllocator    // 在没有找到无参的构造方法后，通过sun.misc.Unsafe构造了一个对象
+
+newu 如何不安全的创建一个对象：
+
+```java
+public static UnsafeAllocator create() {
+// try JVM
+// public class Unsafe {
+//   public Object allocateInstance(Class<?> type);
+// }
+try {
+  Class<?> unsafeClass = Class.forName("sun.misc.Unsafe");
+  Field f = unsafeClass.getDeclaredField("theUnsafe");
+  f.setAccessible(true);
+  final Object unsafe = f.get(null);
+  final Method allocateInstance = unsafeClass.getMethod("allocateInstance", Class.class);
+  return new UnsafeAllocator() {
+    @Override
+    @SuppressWarnings("unchecked")
+    public <T> T newInstance(Class<T> c) throws Exception {
+      assertInstantiable(c);
+      return (T) allocateInstance.invoke(unsafe, c);
+    }
+  };
+} catch (Exception ignored) {
+}
+// try dalvikvm, post-gingerbread use ObjectStreamClass
+// try dalvikvm, pre-gingerbread , ObjectInputStream
+}
+```
+
+所以我们Person没有提供默认的构造方法，Gson在没有找到默认构造方法时，它就直接通过Unsafe的方法，绕过了构造方法，直接构建了一个对象。
+
+53. 协程是非阻塞式挂起的是什么意思呢？就是一段程序切到另一个线程执行，不会卡住到主线程。
