@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
 <meta property="og:description" content="循环： ..     是左闭右闭downTo 是左闭右闭 until  是左闭右开  类：任何一个非抽象类默认都是不可以被继承的。 构造函数：子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。子类在主构造函数中声明成 val 或 var 的参数将自动成为该类的字段，就会与父类同名的字段冲突。因此，同名的参数前面我们不用加任何关键字，让它的作用域仅限定在主构造函数当中。 子类没">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-22T15:17:52.263Z">
+<meta property="og:updated_time" content="2020-06-23T15:30:00.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《第一行代码》(第三版) 之 Kotlin 的总结">
 <meta name="twitter:description" content="循环： ..     是左闭右闭downTo 是左闭右闭 until  是左闭右开  类：任何一个非抽象类默认都是不可以被继承的。 构造函数：子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。子类在主构造函数中声明成 val 或 var 的参数将自动成为该类的字段，就会与父类同名的字段冲突。因此，同名的参数前面我们不用加任何关键字，让它的作用域仅限定在主构造函数当中。 子类没">
@@ -631,6 +631,7 @@ ORM 框架好处：用面向对象的思维来和数据库进行交互，绝大�
      - 主函数调用时, 一条线写下来
      PS: 耗时操作都放在 Suspend 函数中, 主函数不用关心耗时操作的内部线程切换.
 Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程切换, 不会影响调用函数的线程.
+协程泄露本质就是线程泄露 (同 AsyncTask)
 </code></pre></li>
 </ol>
 
