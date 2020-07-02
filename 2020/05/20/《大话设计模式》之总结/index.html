@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
 <meta property="og:description" content="对象: 用一组可识别的特性和行为来标识的实体; 类: 具有享用属性和功能的对象的抽象的集合; 属性: 一个方法或一对方法,有 get()\set()调用; 字段: 与类相关的变量, 通常是私有的; 封装:每个对象都包含它能进行操作所需要的所有信息. 一般无需对外界公开的方法都应该设置成 private, 这才有利于&amp;quot;封装&amp;quot;. 优点:     - 减少耦合     - 类内部的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-02T15:51:32.283Z">
+<meta property="og:updated_time" content="2020-07-02T16:00:32.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《大话设计模式》之总结">
 <meta name="twitter:description" content="对象: 用一组可识别的特性和行为来标识的实体; 类: 具有享用属性和功能的对象的抽象的集合; 属性: 一个方法或一对方法,有 get()\set()调用; 字段: 与类相关的变量, 通常是私有的; 封装:每个对象都包含它能进行操作所需要的所有信息. 一般无需对外界公开的方法都应该设置成 private, 这才有利于&amp;quot;封装&amp;quot;. 优点:     - 减少耦合     - 类内部的">
@@ -514,7 +514,10 @@ PS: clone()
 定义: 定义一个算法中的算法的骨架, 将一些步骤延迟到子类.
 优点: 把不变的行为搬移到父类, 去除子类中的重复代码.
 </code></pre></li>
-<li>迪米特法则: </li>
+<li>迪米特法则:<pre><code>定义: 如果两个类不必彼此直接通信, 那么这两个类就不应当发生直接的相互作用; 如果其中一个类需要调用另一个类的某一个方法的话, 可以通过第三者转发这个调用.
+根本思想: 强调了类之间的松耦合; 类之间的耦合越弱, 越有利于复用, 一个处于弱耦合的类被修改, 不会对有关系的类造成波及.
+</code></pre></li>
+<li>外观模式:</li>
 </ol>
 
       
