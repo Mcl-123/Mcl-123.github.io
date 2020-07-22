@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
 <meta property="og:description" content="循环： ..     是左闭右闭downTo 是左闭右闭 until  是左闭右开  类：任何一个非抽象类默认都是不可以被继承的。 构造函数：子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。子类在主构造函数中声明成 val 或 var 的参数将自动成为该类的字段，就会与父类同名的字段冲突。因此，同名的参数前面我们不用加任何关键字，让它的作用域仅限定在主构造函数当中。 子类没">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-06-23T15:30:00.336Z">
+<meta property="og:updated_time" content="2020-07-22T06:23:18.855Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《第一行代码》(第三版) 之 Kotlin 的总结">
 <meta name="twitter:description" content="循环： ..     是左闭右闭downTo 是左闭右闭 until  是左闭右开  类：任何一个非抽象类默认都是不可以被继承的。 构造函数：子类的主构造函数调用父类中的哪个构造函数，在继承的时候通过括号来指定。子类在主构造函数中声明成 val 或 var 的参数将自动成为该类的字段，就会与父类同名的字段冲突。因此，同名的参数前面我们不用加任何关键字，让它的作用域仅限定在主构造函数当中。 子类没">
@@ -530,32 +530,7 @@ by lazy { }
 <li>泛型的逆变：<pre><code>逆变的定义：假如定义了一个 MyClass&lt;T&gt; 的泛型类，其中 A 是 B 的子类型，同时 MyClass&lt;B&gt; 又是 MyClass&lt;A&gt; 的子类型，那么我们就称 MyClass 在 T 这个泛型上是逆变的。
 实现的方式：在泛型 T 的声明前面加上了一个 in 关键字。这就意味着 T 只能出现在 in 位置上，而不能出现在 out 位置上。
 </code></pre></li>
-<li>协程：简单理解为一种轻量级的线程，用来提升并发编程的运行效率。(一套线程框架)<pre><code>有点: 方便, 方便在它能在同一个代码块里进行多次的线程切换.
-开启方式：
-        - Global.launch {} : 每次创建的都是一个顶层协程，这种协程当应用程序运行结束时跟着一起结束。
-        - runBlocking 函数 : 同样会创建一个协程的作用域，但是它可以保证在协程作用域内的所有代码和子代码没有全部执行完成前一直阻塞当前线程 (PS: 只在测试环境使用，生产环境会有性能问题)
-        - launch 函数 : 用来创建多个协程，但是首先它必须要在协程的作用域下才能调用；其次它会在当前协程的作用域下创建子协程 （PS: 子协程的特点是 如果外层作用域的协程结束了，该作用域下的所有子协程也会一同结束）
-delay 函数: 非阻塞式的挂起函数, 只会挂起当前协程，并不会影响其他协程 (PS: delay 函数只能在协程作用域或其它挂起函数中调用)
-协程的取消: GlobalScope.launch 或 launch 函数都会返回一个 Job 对象, 只要调用 Job 对象的 cancel() 方法就可以取消协程了
-</code></pre></li>
-<li>挂起函数: suspend<pre><code>可以将任意的函数声明成挂起函数，而挂起函数之间是可以互相调用的；suspend 无法给函数提供协程作用域的。
-</code></pre></li>
-<li>coroutineScope 函数: 用来解决 suspend 挂起函数无法提供协程作用域的问题。<pre><code>特点: - 会继承外部的协程作用域并创建一个子作用域, 这样就可以给任意挂起函数提供协程作用域了；
-     - 保证其作用域内的所有代码和子协程在全部执行完之前, 会一直阻塞当前协程。
-     - 可以在协程作用域或者挂起函数内调用
-</code></pre></li>
-<li>async 函数: 会创建一个新的子协程并返回一个 Deferred 对象, 如果我们想要获取 async 函数代码块的执行结果，只需要调用 Deferred 对象的 await() 方法即可。(PS: async 只能在协程作用域里调用)。<pre><code>调用 async 函数之后, 会立刻执行代码块中的代码; 当调用 await() 方法时，如果代码块里的代码还没执行完, 那么 await() 方法会将当前协程阻塞, 直到可以获得 async 函数的执行结果。
-</code></pre></li>
-<li>withContext 函数: 一个挂起函数, 可以理解成 async 函数的一种简化版写法，相当于 async {}.await(), 不同的是 withContext 函数强制要求我们指定一个线程参数。</li>
-<li>线程参数:<pre><code>- Dispatchers.Default : 默认低并发的线程策略, 当你要执行的代码属于计算密集型任务时
-- Dispatchers.IO : 较高并发线程策略, 执行的代码大多数时间是阻塞和等待中
-- Dispatchers.Main : Android 主线程中执行代码
-PS: 协程作用域构建器中，除了 coroutineScope 函数之外, 其他所有的函数都是可以指定这样一个线程参数的。
-</code></pre></li>
-<li>suspendCoroutiner 函数:<pre><code>作用: 简化传统回调机制
-必须在协程作用域或挂起函数中调用
-使用: 接收一个 Lambda 表达式参数, 将当前协程立即挂起, 然后在一个普通线程中执行 Lambda 表达式中的代码。Lambda 表达式的参数列表中会传入一个 Continuation 参数, 调用它的 resume()方法或 resumeWithException() 方法可以让协程恢复。
-</code></pre></li>
+<li>协程, 见<a href="">《Kotlin 协程》</a></li>
 <li>DSL: 领域特定语言<pre><code>infix 函数构建出的特有语法结构就属于 DSL
 </code></pre></li>
 <li>ViewModel<pre><code>作用：帮 Activity 分担一部分工作，专门用于存放与界面相关的数据；将与界面相关的变量存放在 ViewModel 中，即使旋转手机屏幕，界面上显示的数据也不会丢失。
@@ -619,21 +594,6 @@ ORM 框架好处：用面向对象的思维来和数据库进行交互，绝大�
 <p>newu 如何不安全的创建一个对象：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> UnsafeAllocator <span class="title">create</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">// try JVM</span></span><br><span class="line"><span class="comment">// public class Unsafe &#123;</span></span><br><span class="line"><span class="comment">//   public Object allocateInstance(Class&lt;?&gt; type);</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  Class&lt;?&gt; unsafeClass = Class.forName(<span class="string">"sun.misc.Unsafe"</span>);</span><br><span class="line">  Field f = unsafeClass.getDeclaredField(<span class="string">"theUnsafe"</span>);</span><br><span class="line">  f.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">  <span class="keyword">final</span> Object unsafe = f.get(<span class="keyword">null</span>);</span><br><span class="line">  <span class="keyword">final</span> Method allocateInstance = unsafeClass.getMethod(<span class="string">"allocateInstance"</span>, Class.class);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> UnsafeAllocator() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="meta">@SuppressWarnings</span>(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="function">T <span class="title">newInstance</span><span class="params">(Class&lt;T&gt; c)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">      assertInstantiable(c);</span><br><span class="line">      <span class="keyword">return</span> (T) allocateInstance.invoke(unsafe, c);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception ignored) &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// try dalvikvm, post-gingerbread use ObjectStreamClass</span></span><br><span class="line"><span class="comment">// try dalvikvm, pre-gingerbread , ObjectInputStream</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>所以我们Person没有提供默认的构造方法，Gson在没有找到默认构造方法时，它就直接通过Unsafe的方法，绕过了构造方法，直接构建了一个对象。</p>
-<ol start="53">
-<li>协程是非阻塞式挂起的是什么意思呢？就是一段程序切到另一个线程执行，不会卡住到主线程。</li>
-<li>扔物线对协程的总结:<pre><code>定义: 协程是一套协程框架.
-      协程是一套处理并发事件的方案, 同时也是方案中的核心组件. (参考 Adapter)
-      协程和线程一个层级.
-      协程中没有线程, 也不存在并行.
-      Kotlin 协程不需要关心并行/并发, 同时 Kotlin for Java 不属于广义的协程, 它是基于 Java 线程的, 所以不是什么轻量级线程.
-使用: - launch() 开启一段协程
-     - 需要后台工作的函数加上 Suspend, 在内部调用其他的 Suspend 函数切换线程, 一般都是用 withContext
-     - 主函数调用时, 一条线写下来
-     PS: 耗时操作都放在 Suspend 函数中, 主函数不用关心耗时操作的内部线程切换.
-Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程切换, 不会影响调用函数的线程.
-协程泄露本质就是线程泄露 (同 AsyncTask)
-</code></pre></li>
-</ol>
 
       
     </div>
@@ -744,7 +704,7 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -766,7 +726,7 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">74</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
