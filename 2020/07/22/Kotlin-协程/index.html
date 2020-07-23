@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
 <meta property="og:description" content="此文是协程相关的blog\文章\demo, 做总结或简化, 或使用心得等等, 统一放在这里, 方便查找及总结.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-22T09:02:02.533Z">
+<meta property="og:updated_time" content="2020-07-23T06:27:13.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin 协程">
 <meta name="twitter:description" content="此文是协程相关的blog\文章\demo, 做总结或简化, 或使用心得等等, 统一放在这里, 方便查找及总结.">
@@ -458,7 +458,7 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
 <li>onStart：这个看名字估计也能猜出来，就是在发射之前做一些事情，我们可以在这里再 emit()一个数据，他会在flow里边的数据发射之前发射，我们上边的例子，是在OnStart里边打开了等待框</li>
 <li>flowOn：这个就是指定我们的流运行在那个协程里边</li>
 <li>onCompletion ：是在所有流都收集完成了，就会触发，我们可以在这里取消等待框再合适不过了</li>
-<li>catch：这个就是遇到错误的时候会触发，我们我错误处理就是在这里来做了</li>
+<li>catch：这个就是遇到错误的时候会触发，我们我错误处理就是在这里来做了 (只能捕捉上游, 要想捕捉 collect 的话, 得用 try/catch 了)</li>
 <li>collect：这个就是收集器的意思，我们的结果都在这里来处理。也只有我们调用了这个收集方法，数据才真正的开始发射了，这也是官方说的一句话，流是冷的，就是这个意思</li>
 </ul>
 </li>
@@ -478,13 +478,21 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
 </li>
 <li><p>buffer() 用来缓冲 emit 项</p>
 </li>
-<li><p>conflate() 合并 emit 项</p>
+<li><p>conflate() 合并 emit 项  (PS: 有 buffer 效果, 并且当收集的时候, 同事有多个值, 只会收集最新的一个值)</p>
 </li>
-<li><p>collectLatest() 取消耗时的 collect 项, 并重新发射最后的一个值</p>
+<li><p>collectLatest() 取消耗时的 collect 项, 并重新发射最后的一个值 (PS: 每个 emit 都会执行 collect, 但是如果有新的 emit 出来的话, 就会立刻中断上一个 collect)</p>
 </li>
 <li><p>zip() 组合两个流中的值</p>
 </li>
 <li><p>combine() 和 zip 类似是对两个流中的值做组合, 但是 combine 是每当 两个流中的值有任何一个 emit 时, 都会 collect; 而 zip 是两个流组合成一对, 每都有一个 emit 时, 才会 collect</p>
+</li>
+<li><p>flatMapConcat() 第一个流 emit 一项走到第二个流再走到收集, 等第二个流走后的的 collect 项走完, 再循环走到第一个流的 emit 下一个项</p>
+</li>
+<li><p>flatMapMerge() 把所有的流合并到一个单独的流, 然后按时间顺序收集, 第二个流的耗时不影响第一个流的 emit</p>
+</li>
+<li><p>flatMapLatest() 类似 collectLatest(), 第一个流有新的 emit 项, 就会立即中断上一个 collect</p>
+</li>
+<li><p>launchIn() 单独的协程中执行流, 返回的是一个 job</p>
 </li>
 </ol>
 
