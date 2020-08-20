@@ -90,7 +90,7 @@
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
 <meta property="og:description" content="此文是协程相关的blog\文章\demo, 做总结或简化, 或使用心得等等, 统一放在这里, 方便查找及总结.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-07-23T06:27:13.825Z">
+<meta property="og:updated_time" content="2020-07-27T01:30:26.120Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kotlin 协程">
 <meta name="twitter:description" content="此文是协程相关的blog\文章\demo, 做总结或简化, 或使用心得等等, 统一放在这里, 方便查找及总结.">
@@ -494,6 +494,12 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
 </li>
 <li><p>launchIn() 单独的协程中执行流, 返回的是一个 job</p>
 </li>
+<li><p>CoroutineExceptionHandler 一个上下文, 用来处理全局异常处理</p>
+</li>
+<li><p>coroutineScope 和 supervisorScope 的 区别: coroutineScope 内部的取消操作是双向传播的(PS: 任何一个子协程异常退出，那么整体都将退出); 而 supervisorScope 同样继承外部作用域的上下文，但其内部的取消操作是单向传播的，只是父协程向子协程传播(子协程出了异常并不会影响父协程以及其他兄弟协程)</p>
+</li>
+<li><p>(取消 + 阻塞式的任务)[<a href="https://blog.csdn.net/tigershin/article/details/86482808]" target="_blank" rel="noopener">https://blog.csdn.net/tigershin/article/details/86482808]</a>: 使用suspendCancellableCoroutine (用来取消 socket 通信等)</p>
+</li>
 </ol>
 
       
@@ -536,6 +542,10 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/08/20/Kotlin-Github项目代码中的总结/" rel="prev" title="Kotlin Github项目代码中的总结">
+                Kotlin Github项目代码中的总结 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -612,7 +622,7 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

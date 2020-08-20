@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Kotlin,协程," />
 
 
 
@@ -82,16 +82,18 @@
 
 
 
-<meta name="description" content="小小, 小码农梦很美">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JackieMa&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/协议/index.html">
+<meta name="description" content="本文列举部分 Kotlin Github 项目中代码的实际使用等.">
+<meta name="keywords" content="Kotlin,协程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin Github项目代码中的总结">
+<meta property="og:url" content="http://yoursite.com/2020/08/20/Kotlin-Github项目代码中的总结/index.html">
 <meta property="og:site_name" content="JackieMa&#39;s Blog">
-<meta property="og:description" content="小小, 小码农梦很美">
+<meta property="og:description" content="本文列举部分 Kotlin Github 项目中代码的实际使用等.">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-08-20T14:44:11.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JackieMa&#39;s Blog">
-<meta name="twitter:description" content="小小, 小码农梦很美">
+<meta name="twitter:title" content="Kotlin Github项目代码中的总结">
+<meta name="twitter:description" content="本文列举部分 Kotlin Github 项目中代码的实际使用等.">
 
 
 
@@ -121,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/协议/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/08/20/Kotlin-Github项目代码中的总结/"/>
 
 
 
 
 
-  <title>Tag: 协议 | JackieMa's Blog</title>
+  <title>Kotlin Github项目代码中的总结 | JackieMa's Blog</title>
   
 
 
@@ -146,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <a href="https://github.com/Mcl-123" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
@@ -282,54 +284,205 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>协议<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/20/Kotlin-Github项目代码中的总结/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jackie Ma">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JackieMa's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/06/03/Android下实现局域网设备发现与通信/" itemprop="url">
-              
-                <span itemprop="name">Android下实现局域网设备发现与通信</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Kotlin Github项目代码中的总结</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-06-03T21:11:54+08:00"
-              content="2020-06-03" >
-          06-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-20T22:41:53+08:00">
+                2020-08-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Kotlin/" itemprop="url" rel="index">
+                    <span itemprop="name">Kotlin</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2020/08/20/Kotlin-Github项目代码中的总结/" class="leancloud_visitors" data-flag-title="Kotlin Github项目代码中的总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文列举部分 Kotlin Github 项目中代码的实际使用等.</p>
+<a id="more"></a>
+<h2 id="Kotlin-Coroutine-Use-Cases-on-Android"><a href="#Kotlin-Coroutine-Use-Cases-on-Android" class="headerlink" title="Kotlin-Coroutine-Use-Cases-on-Android"></a><a href="https://github.com/LukasLechnerDev/Kotlin-Coroutine-Use-Cases-on-Android" target="_blank" rel="noopener">Kotlin-Coroutine-Use-Cases-on-Android</a></h2><h3 id="三方库"><a href="#三方库" class="headerlink" title="三方库"></a>三方库</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">    apply plugin: <span class="string">'kotlin-kapt'</span></span><br><span class="line"></span><br><span class="line">    compileOptions &#123;</span><br><span class="line">        <span class="keyword">sourceCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">        <span class="keyword">targetCompatibility</span> JavaVersion.VERSION_1_8</span><br><span class="line">    &#125;</span><br><span class="line">    kotlinOptions &#123;</span><br><span class="line">        jvmTarget = JavaVersion.VERSION_1_8.toString()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">implementation <span class="string">"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"</span></span><br><span class="line">    implementation <span class="string">'androidx.core:core-ktx:1.3.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> lifecycle_version = <span class="string">"2.2.0"</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.7"</span></span><br><span class="line">    implementation <span class="string">"org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.7"</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">'com.google.android.material:material:1.2.0'</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">"androidx.activity:activity-ktx:1.1.0"</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">'androidx.recyclerview:recyclerview:1.1.0'</span></span><br><span class="line">    implementation <span class="string">'androidx.cardview:cardview:1.0.0'</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">"androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">'com.squareup.retrofit2:retrofit:2.7.1'</span></span><br><span class="line">    implementation <span class="string">'com.squareup.retrofit2:adapter-rxjava2:2.7.1'</span></span><br><span class="line">    implementation <span class="string">'com.google.code.gson:gson:2.8.6'</span></span><br><span class="line">    implementation <span class="string">'com.squareup.retrofit2:converter-gson:2.7.1'</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">'io.reactivex.rxjava2:rxandroid:2.1.1'</span></span><br><span class="line">    implementation <span class="string">'io.reactivex.rxjava2:rxjava:2.2.19'</span></span><br><span class="line">    implementation <span class="string">'io.reactivex.rxjava2:rxkotlin:2.4.0'</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">"androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> work_manager_version = <span class="string">"2.4.0"</span></span><br><span class="line">    implementation <span class="string">"androidx.work:work-runtime:$work_manager_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.work:work-runtime-ktx:$work_manager_version"</span></span><br><span class="line"></span><br><span class="line">    implementation <span class="string">'com.jakewharton.timber:timber:4.7.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> room_version = <span class="string">"2.2.5"</span></span><br><span class="line">    implementation <span class="string">"androidx.room:room-runtime:$room_version"</span></span><br><span class="line">    implementation <span class="string">"androidx.room:room-ktx:$room_version"</span></span><br><span class="line">    kapt <span class="string">"androidx.room:room-compiler:$room_version"</span></span><br></pre></td></tr></table></figure>
+<h3 id="BaseViewModel-类"><a href="#BaseViewModel-类" class="headerlink" title="BaseViewModel 类"></a>BaseViewModel 类</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseViewModel</span>&lt;<span class="type">T</span>&gt; : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">val</span> uiState: MutableLiveData&lt;T&gt; = MutableLiveData()</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">uiState</span><span class="params">()</span></span> = uiState</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>BaseViewModel 定义泛型，支持不同页面分别对应的不同的 UiState（定义见下面）</li>
+<li>定义变量 uiState, 数据类型为 LiveData，且为 protected 修饰，即不可以在 Activity 中修改</li>
+<li>定义函数 uiState(), 用来在 Activity 中观察</li>
+</ul>
+<h3 id="UiState-类"><a href="#UiState-类" class="headerlink" title="UiState 类"></a>UiState 类</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sealed</span> <span class="class"><span class="keyword">class</span> <span class="title">UiState</span> </span>&#123;</span><br><span class="line">    <span class="keyword">object</span> Loading: UiState()</span><br><span class="line">    <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Success</span></span>(<span class="keyword">val</span> recentVersions: List&lt;AndroidVersion&gt;) : UiState()</span><br><span class="line">    <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Error</span></span>(<span class="keyword">val</span> message: String): UiState()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>定义当前页面对应的 UiState 类，同时再定义页面中需要的不用状态，这里分别是单例 Loading、成功的 Success、失败的 Error</li>
+</ul>
+<h3 id="PerformSingleNetworkRequestViewModel-类"><a href="#PerformSingleNetworkRequestViewModel-类" class="headerlink" title="PerformSingleNetworkRequestViewModel 类"></a>PerformSingleNetworkRequestViewModel 类</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">viewModelScope.launch &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> recentAndroidVersions = mockApi.getRecentAndroidVersions()</span><br><span class="line">        uiState.value = UiState.Success(recentAndroidVersions)</span><br><span class="line">    &#125; <span class="keyword">catch</span> (exception: Exception) &#123;</span><br><span class="line">        Timber.e(exception)</span><br><span class="line">        uiState.value = UiState.Error(<span class="string">"Network Request failed!"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>viewModelScope.launch {} 创建协程作用域</li>
+<li>网络请求获取的结果，创建 UiState.Success(recentAndroidVersions) 或者 UiState.Error(“Network Request failed!”), 并赋值给 uiState</li>
+</ul>
+<h3 id="PerformSingleNetworkRequestActivity-类"><a href="#PerformSingleNetworkRequestActivity-类" class="headerlink" title="PerformSingleNetworkRequestActivity 类"></a>PerformSingleNetworkRequestActivity 类</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">val</span> viewModel: PerformSingleNetworkRequestViewModel <span class="keyword">by</span> viewModels()</span><br><span class="line">viewModel.uiState().observe(<span class="keyword">this</span>, Observer &#123; uiState -&gt;</span><br><span class="line">    render(uiState)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过 activity-ktx 库中的 viewModels() 代理懒加载 viewModel 对象</li>
+<li>监听 BaseViewModel 中的 uiState(), 渲染 UI</li>
+</ul>
+<h3 id="Application-类"><a href="#Application-类" class="headerlink" title="Application 类"></a>Application 类</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate()</span><br><span class="line">    Timber.plant(Timber.DebugTree())</span><br><span class="line">    <span class="comment">// Enable Debugging for Kotlin Coroutines in debug builds</span></span><br><span class="line">    <span class="comment">// Prints Coroutine name when logging Thread.currentThread().name</span></span><br><span class="line">    System.setProperty(<span class="string">"kotlinx.coroutines.debug"</span>, <span class="keyword">if</span> (BuildConfig.DEBUG) <span class="string">"on"</span> <span class="keyword">else</span> <span class="string">"off"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Kotlin/" rel="tag"><i class="fa fa-tag"></i> Kotlin</a>
+          
+            <a href="/tags/协程/" rel="tag"><i class="fa fa-tag"></i> 协程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/22/Kotlin-协程/" rel="next" title="Kotlin 协程">
+                <i class="fa fa-chevron-left"></i> Kotlin 协程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -337,6 +490,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -357,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -435,6 +601,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Kotlin-Coroutine-Use-Cases-on-Android"><span class="nav-number">1.</span> <span class="nav-text">Kotlin-Coroutine-Use-Cases-on-Android</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三方库"><span class="nav-number">1.1.</span> <span class="nav-text">三方库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BaseViewModel-类"><span class="nav-number">1.2.</span> <span class="nav-text">BaseViewModel 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UiState-类"><span class="nav-number">1.3.</span> <span class="nav-text">UiState 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PerformSingleNetworkRequestViewModel-类"><span class="nav-number">1.4.</span> <span class="nav-text">PerformSingleNetworkRequestViewModel 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PerformSingleNetworkRequestActivity-类"><span class="nav-number">1.5.</span> <span class="nav-text">PerformSingleNetworkRequestActivity 类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Application-类"><span class="nav-number">1.6.</span> <span class="nav-text">Application 类</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -575,6 +757,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
