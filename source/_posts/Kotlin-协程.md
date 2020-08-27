@@ -118,3 +118,20 @@ suspend fun getBanner(): BaseResult<List<BannerBean>>
 21. (取消 + 阻塞式的任务)[https://blog.csdn.net/tigershin/article/details/86482808]: 使用suspendCancellableCoroutine (用来取消 socket 通信等)
 
 ## Kotlin 语言中文站
+
+1. 不会阻塞当前协程： Global.launch {} ; launch {} ; async {}
+
+2. 会阻塞当前协程: runBlocking {} ; coroutineScope {} ; async {}.await(); withContext() {} ; Thread.sleep() ; delay() ; Job.join()
+
+3. Global.launch {} 类似守护线程
+
+4. kotlinx.coroutines 中的挂起函数都是可被取消的 。它们检查协程的取消， 并在取消时抛出 CancellationException。
+然而，如果协程正在执行计算任务，并且没有检查取消的话，那么它是不能被取消的, 可以通过 yield() 或者 isActive 来取消执行计算任务
+
+5. join 和 cancelAndJoin 会等待协程所有的终结动作执行完毕, 包括 finally {}
+
+6. 任何尝试在 finally 块中调用挂起函数的行为都会抛出 CancellationException，因为这里持续运行的代码是可以被取消的。使用 withContext(NonCancellable) {}， 可以避免
+
+7. 使用 withTimeout() {}，设置超时，并会抛出 TimeoutCancellationException 异常，可以使用 withTimeoutOrNull 返回 null 来进行超时操作，从而替代抛出一个异常
+
+8.  惰性启动的 async: async(start = CoroutineStart.LAZY) {}, 只有在执行 await() 或者 job.start() 才会启动协程
