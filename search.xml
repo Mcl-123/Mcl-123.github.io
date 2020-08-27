@@ -162,6 +162,24 @@ Suspend: 不是线程切换, 只是标记和提醒; Suspend 函数里的协程�
 <li><p>(取消 + 阻塞式的任务)[<a href="https://blog.csdn.net/tigershin/article/details/86482808]" target="_blank" rel="noopener">https://blog.csdn.net/tigershin/article/details/86482808]</a>: 使用suspendCancellableCoroutine (用来取消 socket 通信等)</p>
 </li>
 </ol>
+<h2 id="Kotlin-语言中文站"><a href="#Kotlin-语言中文站" class="headerlink" title="Kotlin 语言中文站"></a>Kotlin 语言中文站</h2><ol>
+<li><p>不会阻塞当前协程： Global.launch {} ; launch {} ; async {}</p>
+</li>
+<li><p>会阻塞当前协程: runBlocking {} ; coroutineScope {} ; async {}.await(); withContext() {} ; Thread.sleep() ; delay() ; Job.join()</p>
+</li>
+<li><p>Global.launch {} 类似守护线程</p>
+</li>
+<li><p>kotlinx.coroutines 中的挂起函数都是可被取消的 。它们检查协程的取消， 并在取消时抛出 CancellationException。<br>然而，如果协程正在执行计算任务，并且没有检查取消的话，那么它是不能被取消的, 可以通过 yield() 或者 isActive 来取消执行计算任务</p>
+</li>
+<li><p>join 和 cancelAndJoin 会等待协程所有的终结动作执行完毕, 包括 finally {}</p>
+</li>
+<li><p>任何尝试在 finally 块中调用挂起函数的行为都会抛出 CancellationException，因为这里持续运行的代码是可以被取消的。使用 withContext(NonCancellable) {}， 可以避免</p>
+</li>
+<li><p>使用 withTimeout() {}，设置超时，并会抛出 TimeoutCancellationException 异常，可以使用 withTimeoutOrNull 返回 null 来进行超时操作，从而替代抛出一个异常</p>
+</li>
+<li><p>惰性启动的 async: async(start = CoroutineStart.LAZY) {}, 只有在执行 await() 或者 job.start() 才会启动协程</p>
+</li>
+</ol>
 ]]></content>
       <categories>
         <category>Kotlin</category>
@@ -775,9 +793,9 @@ ORM 框架好处：用面向对象的思维来和数据库进行交互，绝大�
         <category>Android</category>
       </categories>
       <tags>
-        <tag>反射</tag>
         <tag>hide</tag>
         <tag>framework</tag>
+        <tag>反射</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,8 +1086,8 @@ ORM 框架好处：用面向对象的思维来和数据库进行交互，绝大�
         <category>Android</category>
       </categories>
       <tags>
-        <tag>Reflection</tag>
         <tag>反射</tag>
+        <tag>Reflection</tag>
         <tag>Java</tag>
       </tags>
   </entry>
