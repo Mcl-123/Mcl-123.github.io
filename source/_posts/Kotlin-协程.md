@@ -116,3 +116,5 @@ suspend fun getBanner(): BaseResult<List<BannerBean>>
 20. coroutineScope 和 supervisorScope 的 区别: coroutineScope 内部的取消操作是双向传播的(PS: 任何一个子协程异常退出，那么整体都将退出); 而 supervisorScope 同样继承外部作用域的上下文，但其内部的取消操作是单向传播的，只是父协程向子协程传播(子协程出了异常并不会影响父协程以及其他兄弟协程)
 
 21. (取消 + 阻塞式的任务)[https://blog.csdn.net/tigershin/article/details/86482808]: 使用suspendCancellableCoroutine (用来取消 socket 通信等)
+
+## Kotlin 语言中文站
